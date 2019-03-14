@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -98,7 +99,12 @@ public class PlayerMovement : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.LeftArrow)) {
             transform.Rotate(0, 0, -roll);
         }
-        
+
         #endregion
+
+        if (Input.GetKeyDown(KeyCode.R)){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+            
     }
 }
