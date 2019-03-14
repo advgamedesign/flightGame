@@ -503,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 40
   directionalSpeed: 20
-  roll: 10
+  roll: 20
   pitch: 10
 --- !u!4 &756326892 stripped
 Transform:
