@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
-  - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -389,7 +389,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &534669906
+--- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -398,13 +398,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5444708ea59b84ba10a98639f85ae8, type: 3}
+  m_Script: {fileID: 11500000, guid: a280dcf45e897cd4cbecfa2a1c8f748a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 756326892}
-  distance: {x: 0, y: 15, z: -40}
-  positionDamping: 1
-  rotationDamping: 1
+  distance: {x: 0, y: 8, z: -40}
+  positionDamping: 1.7
 --- !u!1 &649326663
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 40
   directionalSpeed: 20
-  roll: 5
+  roll: 20
   pitch: 10
 --- !u!4 &756326892 stripped
 Transform:
