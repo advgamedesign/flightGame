@@ -15,11 +15,14 @@ public class PlayerMovement : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        Debug.Log("PlaneMovement Script Added To: " + gameObject.name);
+        Debug.Log("PlayerMovement Script Added To: " + gameObject.name);
     }
 
     // Update is called once per frame
     void Update() {
+
+
+        transform.
 
         //Set Initial Forward Motion
         transform.Translate(0, 0, velocity * Time.deltaTime);
@@ -45,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(1 * directionalSpeed * Time.deltaTime, 0, 0);
         }
 
-        /*
+        
         //Rotation handling for Right Arrow
         if(Input.GetKeyDown(KeyCode.RightArrow)) {
             transform.Rotate(0, 0, -roll);
@@ -54,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.RightArrow)) {
             transform.Rotate(0, 0, roll);
         }
-        */
+        
 
         //When Left Arrow Key is pushed down
         if(Input.GetKey(KeyCode.LeftArrow)) {
@@ -62,7 +65,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(1 * -directionalSpeed * Time.deltaTime, 0, 0);
         }
 
-        /*
+        
         //Rotation handling for Left Arrow
         if(Input.GetKeyDown(KeyCode.LeftArrow)) {
             transform.Rotate(0, 0, roll);
@@ -71,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.LeftArrow)) {
             transform.Rotate(0, 0, -roll);
         }
-        */
+        
 
         #endregion
     }

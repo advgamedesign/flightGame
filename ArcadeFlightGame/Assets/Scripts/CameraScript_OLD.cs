@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour
+public class CameraScript_OLD : MonoBehaviour
 
 {
     public Transform targetPlayer;
-    public Vector3 distance = new Vector3(0f, 5f, -10f);
+    public Vector3 distance = new Vector3(0f,5f,-10f);
 
     public float positionDamping = 2.0f;
+    public float rotationDamping = 2.0f;
 
     private Transform thisTransform;
 
@@ -22,13 +23,19 @@ public class CameraScript : MonoBehaviour
     void LateUpdate()
     {
         //Check to see if a target has been assigned
-        if(targetPlayer == null) {
+        if (targetPlayer == null)
+        {
             return;
         }
 
-        //Linearly Interpolate Camera poisition
-        Vector3 wantedPosition = targetPlayer.position + distance;
+        Vector3 wantedPosition = targetPlayer.position + (targetPlayer.rotation * distance);
         Vector3 currentPosition = Vector3.Lerp(thisTransform.position, wantedPosition, positionDamping * Time.deltaTime);
-        thisTransform.position = currentPosition;
+        thisTransform .position = currentPosition;
+
+        Quaternion wantedRotation = Quaternion.LookRotation(targetPlayer.position - thisTransform.position, targetPlayer.up);
+
+        thisTransform.rotation = wantedRotation;
+
+    
     }
 }
