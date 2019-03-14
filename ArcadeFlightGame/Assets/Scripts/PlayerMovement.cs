@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     //Initial Forward Velocity of Plane
-    public float velocity = 40.0f;
+    private float velocity = 10.0f;
     //Speed of Arrow Key movement
-    public float directionalSpeed = 10.0f;
-
+    private float directionalSpeed = 20.0f;
+    //Plane Roll Angle
+    private float roll = 5.0f;
+    //Plane Pitch Value
+    private float pitch = 10.0f;
 
     // Start is called before the first frame update
     void Start() {
@@ -19,7 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
 
         //Set Initial Forward Motion
-        transform.Translate(0, 0, 1 * velocity * Time.deltaTime);
+        transform.Translate(0, 0, velocity * Time.deltaTime);
 
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
@@ -42,11 +45,33 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(1 * directionalSpeed * Time.deltaTime, 0, 0);
         }
 
+        /*
+        //Rotation handling for Right Arrow
+        if(Input.GetKeyDown(KeyCode.RightArrow)) {
+            transform.Rotate(0, 0, -roll);
+        }
+
+        if(Input.GetKeyUp(KeyCode.RightArrow)) {
+            transform.Rotate(0, 0, roll);
+        }
+        */
+
         //When Left Arrow Key is pushed down
         if(Input.GetKey(KeyCode.LeftArrow)) {
             //Transform Position Z to Move Player Left
             transform.Translate(1 * -directionalSpeed * Time.deltaTime, 0, 0);
         }
+
+        /*
+        //Rotation handling for Left Arrow
+        if(Input.GetKeyDown(KeyCode.LeftArrow)) {
+            transform.Rotate(0, 0, roll);
+        }
+
+        if(Input.GetKeyUp(KeyCode.LeftArrow)) {
+            transform.Rotate(0, 0, -roll);
+        }
+        */
 
         #endregion
     }
