@@ -228,6 +228,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3428b4a763b1f3c4895885e880efdb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 40
+  directionalSpeed: 20
+  roll: 5
+  pitch: 10
 --- !u!1 &203041372
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,8 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5444708ea59b84ba10a98639f85ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlayer: {fileID: 0}
-  distance: {x: 0, y: 5, z: -10}
+  targetPlayer: {fileID: 200129328}
+  distance: {x: 0, y: 5, z: -30}
   positionDamping: 2
   rotationDamping: 2
 --- !u!1 &932650877
