@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     //Initial Forward Velocity of Plane
     public float velocity = 40.0f;
     //Speed of Arrow Key movement
-    public float directionalSpeed = 20.0f;
+    public float directionalSpeed;
     //Plane Roll Angle
     public float roll = 10.0f;
     //Plane Pitch Value
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
         transform.
 
         //Set Initial Forward Motion
-        transform.Translate(0, 0, velocity * Time.deltaTime);
+        transform.Translate(0, 0, transform.forward.z * velocity * Time.deltaTime);
 
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         //When Up Arrow key is pushed down
         if(Input.GetKey(KeyCode.UpArrow)) {
             //Transform Position Z to Move Player Up
-            transform.Translate(0, 1 * directionalSpeed * Time.deltaTime, 0);
+            transform.Translate(0, transform.up.y * directionalSpeed * Time.deltaTime, 0);
         }
 
         //Rotation handling for Up Arrow
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour {
         //When Down Arrow key is pushed down
         if(Input.GetKey(KeyCode.DownArrow)) {
             //Transform Position Z to Move Player Down
-            transform.Translate(0, 1 * -directionalSpeed * Time.deltaTime, 0);
+            transform.Translate(0, transform.up.y * -directionalSpeed * Time.deltaTime, 0);
         }
 
         //Rotation handling for Down Arrow
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour {
         //When Right Arrow key is pushed down
         if(Input.GetKey(KeyCode.RightArrow)) {
             //Transform Position Z to Move Player Right
-            transform.Translate(1 * directionalSpeed * Time.deltaTime, 0, 0);
+            transform.Translate(transform.right.x * directionalSpeed * Time.deltaTime, 0, 0);
         }
         
         //Rotation handling for Right Arrow
@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour {
         //When Left Arrow Key is pushed down
         if(Input.GetKey(KeyCode.LeftArrow)) {
             //Transform Position Z to Move Player Left
-            transform.Translate(1 * -directionalSpeed * Time.deltaTime, 0, 0);
+            transform.Translate(transform.right.x * -directionalSpeed * Time.deltaTime, 0, 0);
         }
 
         
