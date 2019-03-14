@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     //Initial Forward Velocity of Plane
-    private float velocity = 10.0f;
+    public float velocity;
     //Speed of Arrow Key movement
-    private float directionalSpeed = 20.0f;
+    public float directionalSpeed;
     //Plane Roll Angle
-    private float roll = 5.0f;
+    public float roll;
     //Plane Pitch Value
-    private float pitch = 10.0f;
+    public float pitch;
 
     // Start is called before the first frame update
     void Start() {
