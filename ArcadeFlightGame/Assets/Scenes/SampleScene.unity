@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 756326892}
-  distance: {x: 0, y: 5, z: -30}
+  distance: {x: 0, y: 8, z: -30}
   positionDamping: 2
   rotationDamping: 2
 --- !u!1 &649326663
