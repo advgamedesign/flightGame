@@ -219,7 +219,7 @@ Camera:
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_GateFitMode: 2
-  m_FocalLength: 91.14905
+  m_FocalLength: 44.78461
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -228,7 +228,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 15.000001
+  field of view: 30.000002
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1177c0b1c677e41f4969d60f45914162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: {fileID: 102900000, guid: a4f0eee367ddc1247abfc2476d24128d, type: 3}
+  SceneToLoad: {fileID: 102900000, guid: fbcbb0a99d31d484eabccc2edb50dbb0, type: 3}
 --- !u!1 &1868483512
 GameObject:
   m_ObjectHideFlags: 0
