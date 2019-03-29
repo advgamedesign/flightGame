@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
     public float height = 5.0f;
     //Damping Variables 
     public float heightDamping = 2.0f;
-    public float rotationDamping = 3.0f;
+    public float yAxisRotationDamping = 3.0f;
 
     void LateUpdate()
     {
@@ -20,27 +20,28 @@ public class CameraScript : MonoBehaviour
         if(!target)
             return;
 
-        //Rotation Variables
-        float wantedRotationAngle = target.eulerAngles.y;
+        //Height Position Variables
         float wantedHeight = target.position.y + height;
-
-        float currentRotationAngle = transform.eulerAngles.y;
         float currentHeight = transform.position.y;
 
+        //Y-Axis Rotation Variables
+        float wantedRotationAngleY = target.eulerAngles.y;
+        float currentRotationAngleY = transform.eulerAngles.y;
+        
         //Y-Axis Rotation Damping
-        currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+        currentRotationAngleY = Mathf.LerpAngle(currentRotationAngleY, wantedRotationAngleY, yAxisRotationDamping * Time.deltaTime);
 
-        //High Damping
+        //Height Position Damping
         currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
         //Convert Angle into Rotation
-        var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+        var currentRotation = Quaternion.Euler(0, currentRotationAngleY, 0);
 
-        //Set Camera Position
+        //Set Camera Rotation Position
         transform.position = target.position;
         transform.position -= currentRotation * Vector3.forward * distance;
 
-        //Set Camera Height
+        //Set Camera Height Position
         transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
 
         //Look at Target

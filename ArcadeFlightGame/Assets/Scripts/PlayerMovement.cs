@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
-    //Initial Forward Velocity of Plane
+    //Plane Speeds
     public float velocity;
     //Speed of Arrow Key movement
     public float directionalSpeed;
+    //Speed of Turn Rotation(A & D Keys)
+    public float turnSpeed;
     //Plane Roll Angle
     public float roll;
     //Plane Pitch Value
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
 
         //Set Initial Forward Motion
-        transform.Translate(0, 0, transform.forward.z * velocity * Time.deltaTime);
+        transform.Translate(0, 0, transform.forward * velocity * Time.deltaTime, Space.World);
 
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
@@ -102,13 +104,15 @@ public class PlayerMovement : MonoBehaviour {
 
 
         //------TAKE OUT LATER
-        if(Input.GetKey(KeyCode.Q)) {
-            transform.Rotate(0, -2, 0);
+        //Turn Ship Left
+        if(Input.GetKey(KeyCode.A)) {
+            transform.Rotate(0, -turnSpeed, 0, Space.World);
         }
 
         //------TAKE OUT LATER
-        if(Input.GetKey(KeyCode.E)) {
-            transform.Rotate(0, 2, 0);
+        //Turn Ship Right
+        if(Input.GetKey(KeyCode.D)) {
+            transform.Rotate(0, turnSpeed, 0, Space.World);
         }
 
 
