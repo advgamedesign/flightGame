@@ -401,9 +401,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a280dcf45e897cd4cbecfa2a1c8f748a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlayer: {fileID: 756326892}
-  distance: {x: 0, y: 8, z: -40}
-  positionDamping: 1.7
+  target: {fileID: 756326892}
+  distance: 40
+  height: 6.5
+  heightDamping: 2
+  rotationDamping: 3
 --- !u!1 &649326663
 GameObject:
   m_ObjectHideFlags: 0

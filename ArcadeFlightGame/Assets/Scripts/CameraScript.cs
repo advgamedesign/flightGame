@@ -3,32 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
-
 {
-    public Transform targetPlayer;
-    public Vector3 distance = new Vector3(0f, 5f, -10f);
+    //Target we wish to follow
+    public Transform target;
+    //Camera Distance from Target
+    public float distance = 10.0f;
+    //Camera Height from Target
+    public float height = 5.0f;
+    //Damping Variables 
+    public float heightDamping = 2.0f;
+    public float rotationDamping = 3.0f;
 
-    public float positionDamping = 2.0f;
-
-    private Transform thisTransform;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        thisTransform = transform;
-    }
-
-    // Update is called once per frame
     void LateUpdate()
     {
-        //Check to see if a target has been assigned
-        if(targetPlayer == null) {
+        //If target isn't set, return
+        if(!target)
             return;
-        }
 
-        //Linearly Interpolate Camera poisition
-        Vector3 wantedPosition = targetPlayer.position + distance;
-        Vector3 currentPosition = Vector3.Lerp(thisTransform.position, wantedPosition, positionDamping * Time.deltaTime);
-        thisTransform.position = currentPosition;
+        //Rotation Variables
+        float wantedRotationAngle = target.eulerAngles.y;
+        float wantedHeight = target.position.y + height;
+
+        float currentRotationAngle = transform.eulerAngles.y;
+        float currentHeight = transform.position.y;
+
+        //Y-Axis Rotation Damping
+        currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+
+        //High Damping
+        currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+
+        //Convert Angle into Rotation
+        var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+
+        //Set Camera Position
+        transform.position = target.position;
+        transform.position -= currentRotation * Vector3.forward * distance;
+
+        //Set Camera Height
+        transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
+
+        //Look at Target
+        transform.LookAt(target);
     }
 }
