@@ -17,8 +17,10 @@ public class CameraScript : MonoBehaviour
     void LateUpdate()
     {
         //If target isn't set, return
-        if(!target)
+        if(!target) {
+            Debug.LogError("Target not set in Camera Script");
             return;
+        }
 
         //Height Position Variables
         float wantedHeight = target.position.y + height;

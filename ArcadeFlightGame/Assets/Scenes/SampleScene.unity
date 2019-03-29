@@ -503,7 +503,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3428b4a763b1f3c4895885e880efdb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 40
+  forwardSpeed: 10
+  boostSpeed: 80
+  brakeSpeed: 20
+  acceleration: 5
   directionalSpeed: 20
   turnSpeed: 2
   roll: 20
