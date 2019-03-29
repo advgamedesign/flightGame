@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour {
 
     //Initial Forward Velocity of Plane
-    public float velocity = 40.0f;
+    public float velocity;
     //Speed of Arrow Key movement
     public float directionalSpeed;
     //Plane Roll Angle
-    public float roll = 10.0f;
+    public float roll;
     //Plane Pitch Value
-    public float pitch = 5.0f;
+    public float pitch;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,9 +21,6 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
-
-        transform.
 
         //Set Initial Forward Motion
         transform.Translate(0, 0, transform.forward.z * velocity * Time.deltaTime);
@@ -36,41 +33,41 @@ public class PlayerMovement : MonoBehaviour {
         //When Up Arrow key is pushed down
         if(Input.GetKey(KeyCode.UpArrow)) {
             //Transform Position Z to Move Player Up
-            transform.Translate(0, transform.up.y * directionalSpeed * Time.deltaTime, 0);
+            transform.Translate(0, transform.up.y * directionalSpeed * Time.deltaTime, 0, Camera.main.transform);
         }
 
-        //Rotation handling for Up Arrow
+        /*//Rotation handling for Up Arrow
         if(Input.GetKeyDown(KeyCode.UpArrow)) {
             transform.Rotate(-pitch, 0, 0);
         }
 
         if(Input.GetKeyUp(KeyCode.UpArrow)) {
             transform.Rotate(pitch, 0, 0);
-        }
+        }*/
 
         //------Down Arrow Key------
 
         //When Down Arrow key is pushed down
         if(Input.GetKey(KeyCode.DownArrow)) {
             //Transform Position Z to Move Player Down
-            transform.Translate(0, transform.up.y * -directionalSpeed * Time.deltaTime, 0);
+            transform.Translate(0, transform.up.y * -directionalSpeed * Time.deltaTime, 0, Camera.main.transform);
         }
 
-        //Rotation handling for Down Arrow
+        /*//Rotation handling for Down Arrow
         if(Input.GetKeyDown(KeyCode.DownArrow)) {
             transform.Rotate(pitch, 0, 0);
         }
 
         if(Input.GetKeyUp(KeyCode.DownArrow)) {
             transform.Rotate(-pitch, 0, 0);
-        }
+        }*/
 
         //------Right Arrow Key------
 
         //When Right Arrow key is pushed down
         if(Input.GetKey(KeyCode.RightArrow)) {
             //Transform Position Z to Move Player Right
-            transform.Translate(transform.right.x * directionalSpeed * Time.deltaTime, 0, 0);
+            transform.Translate((transform.right.x) * directionalSpeed * Time.deltaTime, 0, 0, Camera.main.transform);
         }
         
         //Rotation handling for Right Arrow
@@ -87,7 +84,7 @@ public class PlayerMovement : MonoBehaviour {
         //When Left Arrow Key is pushed down
         if(Input.GetKey(KeyCode.LeftArrow)) {
             //Transform Position Z to Move Player Left
-            transform.Translate(transform.right.x * -directionalSpeed * Time.deltaTime, 0, 0);
+            transform.Translate((transform.right.x) * -directionalSpeed * Time.deltaTime, 0, 0, Camera.main.transform);
         }
 
         
@@ -101,6 +98,19 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         #endregion
+
+
+
+        //------TAKE OUT LATER
+        if(Input.GetKey(KeyCode.Q)) {
+            transform.Rotate(0, -2, 0);
+        }
+
+        //------TAKE OUT LATER
+        if(Input.GetKey(KeyCode.E)) {
+            transform.Rotate(0, 2, 0);
+        }
+
 
         if (Input.GetKeyDown(KeyCode.R)){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
