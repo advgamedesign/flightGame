@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
 
         //Set Initial Forward Motion
-        transform.Translate(0, 0, transform.forward * velocity * Time.deltaTime, Space.World);
+        transform.Translate(0, 0, transform.forward.z * velocity * Time.deltaTime, Space.World);
 
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
