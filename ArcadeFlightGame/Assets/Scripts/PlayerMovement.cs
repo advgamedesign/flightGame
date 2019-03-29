@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour {
     public float roll;
     //Plane Pitch Value
     public float pitch;
+    //Ships Rigidbody
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start() {
@@ -29,16 +31,38 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
 
 
-        #region Movement Speed (W & Shift Keys)
+        #region Movement Speed (W & Left Shift Keys)
 
         //Used to calculate the ship's speed
-        float curSpeed;
+        float curSpeed = forwardSpeed;
         bool boosting = false;
         bool braking = false;
 
+        //Are we boosting or braking?
+        if(Input.GetKey(KeyCode.W)) {
+            boosting = true;
+        }
+        else {
+            boosting = false;
+        }
+        if(Input.GetKey(KeyCode.LeftShift)) {
+            braking = true;
+        }
+        else {
+            braking = false;
+        }
 
+        //Add or remove speed based on boosting or braking
+        if(boosting)
+            curSpeed = Mathf.Lerp(curSpeed, boostSpeed, Time.deltaTime * acceleration);
+        else if(braking)
+            curSpeed = Mathf.Lerp(curSpeed, brakeSpeed, Time.deltaTime * acceleration);
+        else
+            curSpeed = Mathf.Lerp(curSpeed, forwardSpeed, Time.deltaTime * acceleration);
 
-
+        //Apply the final speed to the rigidbody
+        rb.AddForce(transform.forward * 1000 * Time.deltaTime, ForceMode.Force);
+        Debug.Log("curspeed: " + curSpeed);
 
 
         /*//Set Initial Forward Motion
