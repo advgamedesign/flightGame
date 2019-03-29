@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
-    //Plane Speeds
-    public float velocity;
+    //Plane Movement Speeds
+    public float forwardSpeed = 40;
+    public float boostSpeed = 80;
+    public float brakeSpeed = 20;
+    //How fast the ship changes speed
+    public float acceleration = 5;
     //Speed of Arrow Key movement
     public float directionalSpeed;
     //Speed of Turn Rotation(A & D Keys)
@@ -24,8 +28,22 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        //Set Initial Forward Motion
-        transform.Translate(0, 0, transform.forward.z * velocity * Time.deltaTime, Space.World);
+
+        #region Movement Speed (W & Shift Keys)
+
+        //Used to calculate the ship's speed
+        float curSpeed;
+        bool boosting = false;
+        bool braking = false;
+
+
+
+
+
+
+        /*//Set Initial Forward Motion
+        transform.Translate(0, 0, transform.forward.z * velocity * Time.deltaTime, Space.World);*/
+        #endregion
 
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
