@@ -37,22 +37,6 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-
-        #region Movement Speed (W & Left Shift Keys)
-
-        //Apply the speed to the rigidbody
-        if(rb != null) {
-            Vector3 curSpeed = new Vector3(0, 0, forwardSpeed);
-            rb.AddForce(curSpeed * Time.deltaTime, ForceMode.VelocityChange);
-            Debug.Log(curSpeed);
-        }
-        
-
-
-        /*//Set Initial Forward Motion
-        transform.Translate(0, 0, transform.forward.z * velocity * Time.deltaTime, Space.World);*/
-        #endregion
-
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
 
@@ -146,5 +130,22 @@ public class PlayerMovement : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
             
+    }
+
+    private void FixedUpdate() {
+
+        #region Movement Speed (W & Left Shift Keys)
+
+        //Apply the speed to the rigidbody
+        if(rb != null) {
+            Vector3 movement = new Vector3(0, 0, forwardSpeed);
+            rb.AddForce(movement * Time.deltaTime, ForceMode.VelocityChange);
+        }
+
+        if(rb.velocity.magnitude > forwardSpeed) {
+            rb.velocity = rb.velocity.normalized * forwardSpeed;
+        }
+
+        #endregion
     }
 }
