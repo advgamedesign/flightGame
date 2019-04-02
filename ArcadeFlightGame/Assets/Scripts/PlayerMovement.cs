@@ -40,6 +40,10 @@ public class PlayerMovement : MonoBehaviour {
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
 
+        float verticalHeight = this.transform.position.y;
+        float maxCeiling = 800f;
+        verticalHeight = Mathf.Clamp(verticalHeight, 0, maxCeiling);
+
         //------Up Arrow Key------
 
         //When Up Arrow key is pushed down
@@ -81,7 +85,7 @@ public class PlayerMovement : MonoBehaviour {
             //Transform Position Z to Move Player Right
             transform.Translate((transform.right.x) * directionalSpeed * Time.deltaTime, 0, 0, Camera.main.transform);
         }
-        
+
         //Rotation handling for Right Arrow
         if(Input.GetKeyDown(KeyCode.RightArrow)) {
             transform.Rotate(0, 0, -roll);
@@ -99,7 +103,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate((transform.right.x) * -directionalSpeed * Time.deltaTime, 0, 0, Camera.main.transform);
         }
 
-        
+
         //Rotation handling for Left Arrow
         if(Input.GetKeyDown(KeyCode.LeftArrow)) {
             transform.Rotate(0, 0, roll);
@@ -125,7 +129,6 @@ public class PlayerMovement : MonoBehaviour {
             transform.Rotate(0, turnSpeed, 0, Space.World);
         }
 
-
         if (Input.GetKeyDown(KeyCode.R)){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -133,11 +136,12 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+    
 
-        #region Movement Speed (W & Left Shift Keys)
+    #region Movement Speed (W & Left Shift Keys)
 
-        //Apply the speed to the rigidbody
-        if(rb != null) {
+    //Apply the speed to the rigidbody
+    if(rb != null) {
             Vector3 movement = new Vector3(0, 0, forwardSpeed);
             rb.AddForce(movement * Time.deltaTime, ForceMode.VelocityChange);
         }
