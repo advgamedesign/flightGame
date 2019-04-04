@@ -6,21 +6,31 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour {
 
     //Plane Movement Speeds
-    public float forwardSpeed = 40;
-    public float boostSpeed = 80;
-    public float brakeSpeed = 20;
+    [SerializeField] private float forwardSpeed;
+    //public float boostSpeed = 80;
+    //public float brakeSpeed = 20;
+
     //How fast the ship changes speed
-    public float acceleration = 5;
+    //public float acceleration = 5;
+
     //Speed of Arrow Key movement
-    public float directionalSpeed;
+    [SerializeField] private float directionalSpeed;
+
     //Speed of Turn Rotation(A & D Keys)
-    public float turnSpeed;
+    [SerializeField] private float turnSpeed;
+
     //Plane Roll Angle
-    public float roll;
+    [SerializeField] float roll;
+
     //Plane Pitch Value
-    public float pitch;
+    //public float pitch;
+
     //Ships Rigidbody
     Rigidbody rb;
+
+    //Set Minimum/Maximum Height
+    [SerializeField] private float MaxHeight;
+    [SerializeField] private float MinHeight;
 
     // Start is called before the first frame update
     void Start() {
@@ -40,9 +50,10 @@ public class PlayerMovement : MonoBehaviour {
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
 
-        float verticalHeight = this.transform.position.y;
-        float maxCeiling = 800f;
-        verticalHeight = Mathf.Clamp(verticalHeight, 0, maxCeiling);
+        if(transform.position.y > MaxHeight)
+            transform.position = new Vector3(transform.position.x, MaxHeight, transform.position.z);
+        if(transform.position.y < MinHeight)
+            transform.position = new Vector3(transform.position.x, MinHeight, transform.position.z);
 
         //------Up Arrow Key------
 

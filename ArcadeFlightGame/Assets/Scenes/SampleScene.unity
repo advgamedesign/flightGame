@@ -504,13 +504,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 60
-  boostSpeed: 120
-  brakeSpeed: 30
-  acceleration: 5
   directionalSpeed: 20
   turnSpeed: 2
   roll: 20
-  pitch: 10
+  MaxHeight: 80
+  MinHeight: 0
 --- !u!4 &756326892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea,
