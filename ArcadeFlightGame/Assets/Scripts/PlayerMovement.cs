@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float turnSpeed;
 
     //Plane Roll Angle
-    [SerializeField] float roll;
+    [SerializeField] private float roll;
 
     //Plane Pitch Value
     //public float pitch;
@@ -126,15 +126,13 @@ public class PlayerMovement : MonoBehaviour {
 
         #endregion
 
-
-
-        //------TAKE OUT LATER
+        //------TAKE OUT LATER-----
         //Turn Ship Left
         if(Input.GetKey(KeyCode.A)) {
             transform.Rotate(0, -turnSpeed, 0, Space.World);
         }
 
-        //------TAKE OUT LATER
+        //------TAKE OUT LATER-----
         //Turn Ship Right
         if(Input.GetKey(KeyCode.D)) {
             transform.Rotate(0, turnSpeed, 0, Space.World);
@@ -147,12 +145,12 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-    
 
-    #region Movement Speed (W & Left Shift Keys)
 
-    //Apply the speed to the rigidbody
-    if(rb != null) {
+        #region Movement Speed (W & Left Shift Keys)
+
+        /*//Apply the speed to the rigidbody
+        if(rb != null) {
             Vector3 movement = new Vector3(0, 0, forwardSpeed);
             rb.AddForce(movement * Time.deltaTime, ForceMode.VelocityChange);
         }
@@ -160,6 +158,9 @@ public class PlayerMovement : MonoBehaviour {
         if(rb.velocity.magnitude > forwardSpeed) {
             rb.velocity = rb.velocity.normalized * forwardSpeed;
         }
+        */
+
+        transform.position += transform.forward * forwardSpeed * Time.deltaTime;
 
         #endregion
     }
