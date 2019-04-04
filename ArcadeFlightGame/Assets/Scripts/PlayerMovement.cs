@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour {
         //When Right Arrow key is pushed down
         if(Input.GetKey(KeyCode.RightArrow)) {
             //Transform Position Z to Move Player Right
-            transform.Translate((transform.right.x) * directionalSpeed * Time.deltaTime, 0, 0, Camera.main.transform);
+            transform.position += Camera.main.transform.right * directionalSpeed * Time.deltaTime;
         }
 
         //Rotation handling for Right Arrow
@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour {
         //When Left Arrow Key is pushed down
         if(Input.GetKey(KeyCode.LeftArrow)) {
             //Transform Position Z to Move Player Left
-            transform.Translate((transform.right.x) * -directionalSpeed * Time.deltaTime, 0, 0, Camera.main.transform);
+            transform.position += Camera.main.transform.right * -directionalSpeed * Time.deltaTime;
         }
 
 
