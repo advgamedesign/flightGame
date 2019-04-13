@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4293175274729168280}
   - component: {fileID: 4293175274729168283}
   - component: {fileID: 4293175274729168282}
+  - component: {fileID: 3290982995952512102}
   m_Layer: 0
-  m_Name: Dummy Bullet
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,6 +65,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3290982995952512102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293175274729168285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a0218c1a5175f46b437c3e2cfb6e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4293175275534786132
 GameObject:
   m_ObjectHideFlags: 0

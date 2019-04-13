@@ -126,6 +126,11 @@ public class PlayerMovement : MonoBehaviour {
 
         #endregion
 
+        #region Shooting
+        if(Input.GetKey(KeyCode.Space)) {
+            Shoot();
+        }
+        #endregion
         //------TAKE OUT LATER-----
         //Turn Ship Left
         if(Input.GetKey(KeyCode.A)) {
@@ -163,5 +168,20 @@ public class PlayerMovement : MonoBehaviour {
         transform.position += transform.forward * forwardSpeed * Time.deltaTime;
 
         #endregion
+    }
+
+    public void Shoot()
+    {
+        //Get bullets from ObjectPooler Script
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject("Bullet");
+
+        //if there isnt a bullet currently shooting
+        if(bullet != null) {
+            //Put bullet in same position and rotation as Player
+            bullet.transform.position = this.transform.position;
+            bullet.transform.rotation = this.transform.rotation;
+            //Set bullet to active
+            bullet.SetActive(true);
+        }
     }
 }
