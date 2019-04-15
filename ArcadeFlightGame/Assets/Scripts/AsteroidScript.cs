@@ -13,8 +13,8 @@ public class AsteroidScript : MonoBehaviour
     private int health;
 
     //Set Minimum/Maximum Height
-    [SerializeField] private float MaxHeight;
-    [SerializeField] private float MinHeight;
+    [SerializeField] private float MaxHeight = 30;
+    [SerializeField] private float MinHeight = 0;
 
 
     // Start is called before the first frame update
