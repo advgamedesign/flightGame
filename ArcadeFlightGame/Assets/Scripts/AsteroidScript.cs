@@ -10,12 +10,20 @@ public class AsteroidScript : MonoBehaviour
     private Vector3 rotationAxis;
     private Vector3 driftDirection;
 
+    private int health;
+
+    //Set Minimum/Maximum Height
+    [SerializeField] private float MaxHeight;
+    [SerializeField] private float MinHeight;
+
+
     // Start is called before the first frame update
     void Start()
     {
        
         rotationAxis = new Vector3(Random.Range(0, 100), Random.Range(0, 100), Random.Range(0, 100));
         driftDirection = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100));
+        health = 3;
 
 
     }
@@ -25,5 +33,11 @@ public class AsteroidScript : MonoBehaviour
     {
         transform.Translate(driftDirection * driftSpeed * Time.deltaTime);
         transform.Rotate(rotationAxis * rotationSpeed * Time.deltaTime);
+
+        if (transform.position.y > MaxHeight)
+            transform.position = new Vector3(transform.position.x, MaxHeight, transform.position.z);
+        if (transform.position.y < MinHeight)
+            transform.position = new Vector3(transform.position.x, MinHeight, transform.position.z);
+
     }
 }
