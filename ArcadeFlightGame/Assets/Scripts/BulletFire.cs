@@ -6,7 +6,6 @@ public class BulletFire : MonoBehaviour
 {
     public float fireTime = 1f;
     public GameObject bulletObject;
-    //public GameObject shooterObject;
 
     public int amountOfBullets = 40;
     List<GameObject> bullets;
@@ -21,12 +20,10 @@ public class BulletFire : MonoBehaviour
             obj.SetActive(false);
             bullets.Add(obj);
         }
-
-        InvokeRepeating("Fire", fireTime, fireTime);
     }
 
     // Update is called once per frame
-    void Fire()
+    public void Fire()
     {
         for(int i = 0; i < bullets.Count; i++) {
             if(!bullets[i].activeInHierarchy) {

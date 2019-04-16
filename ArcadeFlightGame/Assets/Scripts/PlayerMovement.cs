@@ -25,22 +25,27 @@ public class PlayerMovement : MonoBehaviour {
     //Plane Pitch Value
     //public float pitch;
 
-    //Ships Rigidbody
-    Rigidbody rb;
-
     //Set Minimum/Maximum Height
     [SerializeField] private float MaxHeight;
     [SerializeField] private float MinHeight;
+
+    //----Bullet Info----
+    public float fireTime = 1f;
+    public GameObject bulletObject;
+
+    public int amountOfBullets = 40;
+    List<GameObject> bullets;
 
     // Start is called before the first frame update
     void Start() {
         Debug.Log("PlayerMovement Script Added To: " + gameObject.name);
 
-        rb = GetComponent<Rigidbody>();
-
-        if(rb == null) {
-            Debug.LogError("RigidBody Could Not Be Found");
-            return;
+        //Instantiate all bullets
+        bullets = new List<GameObject>();
+        for(int i = 0; i < amountOfBullets; i++) {
+            GameObject obj = (GameObject)Instantiate(bulletObject);
+            obj.SetActive(false);
+            bullets.Add(obj);
         }
     }
 
@@ -128,7 +133,7 @@ public class PlayerMovement : MonoBehaviour {
 
         #region Shooting
         if(Input.GetKey(KeyCode.Space)) {
-            Shoot();
+            Fire();
         }
         #endregion
         //------TAKE OUT LATER-----
@@ -170,18 +175,15 @@ public class PlayerMovement : MonoBehaviour {
         #endregion
     }
 
-    public void Shoot()
-    {
-        //Get bullets from ObjectPooler Script
-        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject("Bullet");
-
-        //if there isnt a bullet currently shooting
-        if(bullet != null) {
-            //Put bullet in same position and rotation as Player
-            bullet.transform.position = this.transform.position;
-            bullet.transform.rotation = this.transform.rotation;
-            //Set bullet to active
-            bullet.SetActive(true);
+    // Update is called once per frame
+    public void Fire() {
+        for(int i = 0; i < bullets.Count; i++) {
+            if(!bullets[i].activeInHierarchy) {
+                bullets[i].transform.position = transform.position;
+                bullets[i].transform.rotation = transform.rotation;
+                bullets[i].SetActive(true);
+                break;
+            }
         }
     }
 }

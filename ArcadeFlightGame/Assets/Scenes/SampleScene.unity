@@ -558,6 +558,10 @@ MonoBehaviour:
   roll: 10
   MaxHeight: 80
   MinHeight: 2
+  fireTime: 100
+  bulletObject: {fileID: 4293175274729168285, guid: 3735ad9cb4df14e42b0c87302f7ca0e8,
+    type: 3}
+  amountOfBullets: 40
 --- !u!4 &756326892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea,
@@ -587,7 +591,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756326890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76687598f0be69d46b0a8cb666df1793, type: 3}
   m_Name: 
