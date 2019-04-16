@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class BulletDestroy : MonoBehaviour
 {
+    public float destroyTime = 2f;
     void OnEnable()
     {
-        Invoke("Destroy", 2f);
+        Invoke("Destroy", destroyTime);
     }
 
     void Destroy()
     {
         gameObject.SetActive(false);
+        //Debug.Log("Destroyed");
     }
 
     void OnDisable()

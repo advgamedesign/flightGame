@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public int amountOfBullets = 40;
     List<GameObject> bullets;
+    private bool isCoroutineExecuting = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -133,7 +134,7 @@ public class PlayerMovement : MonoBehaviour {
 
         #region Shooting
         if(Input.GetKey(KeyCode.Space)) {
-            Fire();
+            StartCoroutine("Fire", fireTime);
         }
         #endregion
         //------TAKE OUT LATER-----
@@ -175,8 +176,13 @@ public class PlayerMovement : MonoBehaviour {
         #endregion
     }
 
-    // Update is called once per frame
-    public void Fire() {
+    IEnumerator Fire(float time) {
+
+        if(isCoroutineExecuting)
+            yield break;
+
+        isCoroutineExecuting = true;
+
         for(int i = 0; i < bullets.Count; i++) {
             if(!bullets[i].activeInHierarchy) {
                 bullets[i].transform.position = transform.position;
@@ -185,5 +191,9 @@ public class PlayerMovement : MonoBehaviour {
                 break;
             }
         }
+
+        yield return new WaitForSeconds(time);
+
+        isCoroutineExecuting = false;
     }
 }
