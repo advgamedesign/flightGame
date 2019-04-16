@@ -5,14 +5,6 @@ using UnityEngine;
 public class PathManager : MonoBehaviour
 {
 
-    public GameObject rightTurnPrefab;
-
-    public GameObject leftTurnPrefab;
-
-    public GameObject strightPrefab;
-
-    public GameObject splitPrefab;
-
     public GameObject[] pathPrefabs;
 
     public GameObject currentPath;
@@ -20,10 +12,10 @@ public class PathManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // for (int i = 0; i < 10; i++)
-        //{
+        for (int i = 0; i < 10; i++)
+        {
             SpawnPath();
-        //}
+        }
     }
 
     // Update is called once per frame
@@ -34,6 +26,7 @@ public class PathManager : MonoBehaviour
 
     public void SpawnPath()
     {
-        currentPath = (GameObject)Instantiate(leftTurnPrefab, currentPath.transform.GetChild(0).position, Quaternion.identity);
+        currentPath = (GameObject)Instantiate(pathPrefabs[2], currentPath.transform.GetChild(1).position, Quaternion.identity);
+
     }
 }
