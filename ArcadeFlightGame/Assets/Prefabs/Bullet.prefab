@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+  shooter: {fileID: 100002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
 --- !u!114 &7892175631343146680
 MonoBehaviour:
   m_ObjectHideFlags: 0

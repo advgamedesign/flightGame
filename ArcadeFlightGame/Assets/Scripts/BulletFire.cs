@@ -6,6 +6,7 @@ public class BulletFire : MonoBehaviour
 {
     public float fireTime = 1f;
     public GameObject bulletObject;
+    //public GameObject shooterObject;
 
     public int amountOfBullets = 40;
     List<GameObject> bullets;
