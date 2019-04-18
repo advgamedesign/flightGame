@@ -1869,6 +1869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3428b4a763b1f3c4895885e880efdb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  playerHealth: 5
   forwardSpeed: 40
   directionalSpeed: 20
   turnSpeed: 3
@@ -2353,6 +2355,7 @@ GameObject:
   - component: {fileID: 1239287208}
   - component: {fileID: 1239287207}
   - component: {fileID: 1239287206}
+  - component: {fileID: 1239287209}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -2444,6 +2447,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1239287209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239287204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be15523896c324b12bd8f41857bb2a77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObject: {fileID: 756326890}
 --- !u!1 &1296762850
 GameObject:
   m_ObjectHideFlags: 0
