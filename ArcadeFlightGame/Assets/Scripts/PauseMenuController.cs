@@ -8,7 +8,6 @@ public class PauseMenuController : MonoBehaviour
     public static bool isPaused = false;
 
     [SerializeField] private GameObject pauseMenuUI;
-    //[SerializeField] private GameObject timerUI;
 
     [SerializeField] private Object SceneToLoad;
 
@@ -29,7 +28,6 @@ public class PauseMenuController : MonoBehaviour
     {
         Debug.Log("Resuming Game...");
         pauseMenuUI.SetActive(false);
-        //timerUI.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -38,7 +36,6 @@ public class PauseMenuController : MonoBehaviour
     {
         Debug.Log("Game Paused");
         pauseMenuUI.SetActive(true);
-        //timerUI.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
     }
