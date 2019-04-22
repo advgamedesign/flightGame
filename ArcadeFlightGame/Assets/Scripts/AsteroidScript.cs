@@ -35,9 +35,17 @@ public class AsteroidScript : MonoBehaviour
         transform.Rotate(rotationAxis * rotationSpeed * Time.deltaTime);
 
         if (transform.position.y > MaxHeight)
+        {
             transform.position = new Vector3(transform.position.x, MaxHeight, transform.position.z);
+            driftDirection = driftDirection * -1;
+        }
+            
         if (transform.position.y < MinHeight)
+        {
             transform.position = new Vector3(transform.position.x, MinHeight, transform.position.z);
+            driftDirection = driftDirection * -1;
+        }
+            
 
     }
 }
