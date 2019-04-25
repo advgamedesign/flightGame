@@ -26,10 +26,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float MinHeight;
 
     //----Bullet Info----
-    public float fireTime = 1f;
-    public GameObject bulletObject;
+    [SerializeField] private float fireTime = 1f;
+    [SerializeField] private GameObject bulletObject;
+    [SerializeField] private GameObject playerShip;
 
-    public int amountOfBullets = 40;
+    [SerializeField] private int amountOfBullets = 40;
     List<GameObject> bullets;
     private bool isCoroutineExecuting = false;
 
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour {
         //Instantiate all bullets
         bullets = new List<GameObject>();
         for(int i = 0; i < amountOfBullets; i++) {
-            GameObject obj = (GameObject)Instantiate(bulletObject);
+            GameObject obj = (GameObject)Instantiate(bulletObject, playerShip.transform.forward, Quaternion.identity);
             obj.SetActive(false);
             bullets.Add(obj);
         }
