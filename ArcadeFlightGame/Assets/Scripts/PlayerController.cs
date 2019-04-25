@@ -57,10 +57,6 @@ public class PlayerController : MonoBehaviour {
             playerHealth -= 1;
             //Debug.Log("Player health: " + playerHealth);
         }
-        if(playerHealth == 0) {
-            Debug.Log("YOU DIED! *Shows awesome menu*");
-            //Show a menu w/ possible leaderboard
-        }
 
         #endregion
 

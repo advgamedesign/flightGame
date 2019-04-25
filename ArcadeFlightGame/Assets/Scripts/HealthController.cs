@@ -75,7 +75,12 @@ public class HealthController : MonoBehaviour
             heart4.SetActive(false);
             heart5.SetActive(false);
 
-            //Death
+            //Death - Stop Time and Display Menu
+            Time.timeScale = 0f;
+            Debug.Log("YOU DIED! *Shows awesome menu*");
+
+            //__CHANGE__Show a menu w/ possible leaderboard
+
         }
     }
 }
