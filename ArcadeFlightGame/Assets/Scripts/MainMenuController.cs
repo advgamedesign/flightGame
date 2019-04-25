@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] private Object SceneToLoad;
-
-
-    public void PlayGame()
-    {
-        Debug.Log("Opening Scene: " + SceneToLoad);
-        SceneManager.LoadScene(SceneToLoad.name);
+    [SerializeField] private Scene SceneToLoad;
+    //[SerializeField] private Scene LeaderboardScene;
+    private void Awake() {
+        Debug.Log("Scene Opened: " + SceneManager.GetActiveScene().name);
     }
 
-    public void QuitGame()
-    {
+    public void PlayGame() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneToLoad.handle);
+    }
+
+    /*public void LeaderboardMenu() {
+        SceneManager.LoadScene(LeaderboardScene.handle);
+    }*/
+
+    public void QuitGame() {
         Debug.Log("Quitting Game...");
         Application.Quit();
     }

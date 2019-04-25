@@ -9,7 +9,12 @@ public class PauseMenuController : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenuUI;
 
-    [SerializeField] private Object SceneToLoad;
+    [SerializeField] private Scene SceneToLoad;
+
+
+    private void Awake() {
+        Debug.Log("Scene Opened: " + SceneManager.GetActiveScene().name);
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,9 +48,8 @@ public class PauseMenuController : MonoBehaviour
     public void ExitToMainMenu()
     {
         Debug.Log("Exitting to Main Menu...");
-        Debug.Log("Opening Scene: " + SceneToLoad);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneToLoad.name);
+        SceneManager.LoadScene(SceneToLoad.handle);
         isPaused = false;
     }
 }

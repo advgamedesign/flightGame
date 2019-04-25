@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
+    [SerializeField] private Scene SceneToLoad;
     [SerializeField] private GameObject playerObject;
     private int health;
 
@@ -77,10 +79,9 @@ public class HealthController : MonoBehaviour
 
             //Death - Stop Time and Display Menu
             Time.timeScale = 0f;
-            Debug.Log("YOU DIED! *Shows awesome menu*");
 
             //__CHANGE__Show a menu w/ possible leaderboard
-
+            SceneManager.LoadScene(SceneToLoad.handle);
         }
     }
 }
