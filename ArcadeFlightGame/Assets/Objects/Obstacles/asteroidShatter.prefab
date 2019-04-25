@@ -14618,6 +14618,7 @@ GameObject:
   - component: {fileID: 3164243211320706639}
   - component: {fileID: 7937822975568510623}
   - component: {fileID: 2896033023451067554}
+  - component: {fileID: 5478612699990310016}
   m_Layer: 0
   m_Name: asteroidShatter
   m_TagString: Untagged
@@ -14913,6 +14914,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5478612699990310016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164243211311330703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99181adcd982b9d4480d6ca50b0f2c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3164243211311330705
 GameObject:
   m_ObjectHideFlags: 0
