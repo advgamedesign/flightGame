@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
+
+    //Variables used for score and health
+    public int score = 0;
+    public int playerHealth = 5;
 
     //Plane Movement Speeds
     [SerializeField] private float forwardSpeed;
-    //public float boostSpeed = 80;
-    //public float brakeSpeed = 20;
-
-    //How fast the ship changes speed
-    //public float acceleration = 5;
 
     //Speed of Arrow Key movement
     [SerializeField] private float directionalSpeed;
@@ -21,9 +20,6 @@ public class PlayerMovement : MonoBehaviour {
 
     //Plane Roll Angle
     [SerializeField] private float roll;
-
-    //Plane Pitch Value
-    //public float pitch;
 
     //Set Minimum/Maximum Height
     [SerializeField] private float MaxHeight;
@@ -53,6 +49,28 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        #region Player Health
+
+        //----TEMPORARY----
+        //Need to add actual health instances
+        if(Input.GetKeyDown(KeyCode.P)) {
+            playerHealth -= 1;
+            //Debug.Log("Player health: " + playerHealth);
+        }
+
+        #endregion
+
+
+        #region Player Score
+
+        //----TEMPORARY----
+        //Need to add actual health instances
+        if(Input.GetKeyDown(KeyCode.M)) {
+            score += 12;
+        }
+
+        #endregion
+
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
 
@@ -69,15 +87,6 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(0, transform.up.y * directionalSpeed * Time.deltaTime, 0, Camera.main.transform);
         }
 
-        /*//Rotation handling for Up Arrow
-        if(Input.GetKeyDown(KeyCode.UpArrow)) {
-            transform.Rotate(-pitch, 0, 0);
-        }
-
-        if(Input.GetKeyUp(KeyCode.UpArrow)) {
-            transform.Rotate(pitch, 0, 0);
-        }*/
-
         //------Down Arrow Key------
 
         //When Down Arrow key is pushed down
@@ -85,15 +94,6 @@ public class PlayerMovement : MonoBehaviour {
             //Transform Position Z to Move Player Down
             transform.Translate(0, transform.up.y * -directionalSpeed * Time.deltaTime, 0, Camera.main.transform);
         }
-
-        /*//Rotation handling for Down Arrow
-        if(Input.GetKeyDown(KeyCode.DownArrow)) {
-            transform.Rotate(pitch, 0, 0);
-        }
-
-        if(Input.GetKeyUp(KeyCode.DownArrow)) {
-            transform.Rotate(-pitch, 0, 0);
-        }*/
 
         //------Right Arrow Key------
 
@@ -137,6 +137,7 @@ public class PlayerMovement : MonoBehaviour {
             StartCoroutine("Fire", fireTime);
         }
         #endregion
+
         //------TAKE OUT LATER-----
         //Turn Ship Left
         if(Input.GetKey(KeyCode.A)) {
@@ -157,23 +158,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate() {
 
-
-        #region Movement Speed (W & Left Shift Keys)
-
-        /*//Apply the speed to the rigidbody
-        if(rb != null) {
-            Vector3 movement = new Vector3(0, 0, forwardSpeed);
-            rb.AddForce(movement * Time.deltaTime, ForceMode.VelocityChange);
-        }
-
-        if(rb.velocity.magnitude > forwardSpeed) {
-            rb.velocity = rb.velocity.normalized * forwardSpeed;
-        }
-        */
-
         transform.position += transform.forward * forwardSpeed * Time.deltaTime;
-
-        #endregion
     }
 
     IEnumerator Fire(float time) {

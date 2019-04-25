@@ -8,9 +8,13 @@ public class PauseMenuController : MonoBehaviour
     public static bool isPaused = false;
 
     [SerializeField] private GameObject pauseMenuUI;
-    //[SerializeField] private GameObject timerUI;
 
-    [SerializeField] private Object SceneToLoad;
+    [SerializeField] private Scene SceneToLoad;
+
+
+    private void Awake() {
+        Debug.Log("Scene Opened: " + SceneManager.GetActiveScene().name);
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,7 +33,6 @@ public class PauseMenuController : MonoBehaviour
     {
         Debug.Log("Resuming Game...");
         pauseMenuUI.SetActive(false);
-        //timerUI.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -38,7 +41,6 @@ public class PauseMenuController : MonoBehaviour
     {
         Debug.Log("Game Paused");
         pauseMenuUI.SetActive(true);
-        //timerUI.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -46,9 +48,8 @@ public class PauseMenuController : MonoBehaviour
     public void ExitToMainMenu()
     {
         Debug.Log("Exitting to Main Menu...");
-        Debug.Log("Opening Scene: " + SceneToLoad);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneToLoad.name);
+        SceneManager.LoadScene(SceneToLoad.handle);
         isPaused = false;
     }
 }
