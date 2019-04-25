@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 
     //Variables used for score and health
-    public int score = 0;
-    public int playerHealth = 5;
+    [HideInInspector] public int score = 0;
+    [HideInInspector] public int playerHealth = 5;
 
     //Plane Movement Speeds
     [SerializeField] private float forwardSpeed;
