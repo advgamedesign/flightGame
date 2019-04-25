@@ -51,14 +51,29 @@ public class PlayerController : MonoBehaviour {
 
         #region Player Health
 
-        //----REMOVE----
+        //----TEMPORARY----
+        //Need to add actual health instances
         if(Input.GetKeyDown(KeyCode.P)) {
             playerHealth -= 1;
             //Debug.Log("Player health: " + playerHealth);
         }
+        if(playerHealth == 0) {
+            Debug.Log("YOU DIED! *Shows awesome menu*");
+            //Show a menu w/ possible leaderboard
+        }
 
         #endregion
 
+
+        #region Player Score
+
+        //----TEMPORARY----
+        //Need to add actual health instances
+        if(Input.GetKeyDown(KeyCode.M)) {
+            score += 12;
+        }
+
+        #endregion
 
         #region Arrow Movement
         //------------Setup Initial Arrow Flight Movement---------------
