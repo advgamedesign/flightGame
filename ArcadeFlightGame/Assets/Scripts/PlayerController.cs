@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour {
     //Speed of Arrow Key movement
     [SerializeField] private float directionalSpeed;
 
-    //Speed of Turn Rotation(A & D Keys)
-    [SerializeField] private float turnSpeed;
-
     //Plane Roll Angle
     [SerializeField] private float roll;
 
@@ -41,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         //Instantiate all bullets
         bullets = new List<GameObject>();
         for(int i = 0; i < amountOfBullets; i++) {
-            GameObject obj = (GameObject)Instantiate(bulletObject, playerShip.transform.forward, Quaternion.identity);
+            GameObject obj = (GameObject)Instantiate(bulletObject, transform.forward, Quaternion.identity);
             obj.SetActive(false);
             bullets.Add(obj);
         }
@@ -139,18 +136,7 @@ public class PlayerController : MonoBehaviour {
         }
         #endregion
 
-        //------TAKE OUT LATER-----
-        //Turn Ship Left
-        if(Input.GetKey(KeyCode.A)) {
-            transform.Rotate(0, -turnSpeed, 0, Space.World);
-        }
-
-        //------TAKE OUT LATER-----
-        //Turn Ship Right
-        if(Input.GetKey(KeyCode.D)) {
-            transform.Rotate(0, turnSpeed, 0, Space.World);
-        }
-
+        //Restart game
         if (Input.GetKeyDown(KeyCode.R)){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
