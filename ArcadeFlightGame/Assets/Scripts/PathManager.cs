@@ -5,9 +5,9 @@ using UnityEngine;
 public class PathManager : MonoBehaviour
 {
 
-    //public GameObject[] pathPrefabs;
+    public GameObject[] pathPrefabs;
 
-    //public GameObject currentPath;
+    public GameObject currentPath;
 
     // Start is called before the first frame update
     void Start()
