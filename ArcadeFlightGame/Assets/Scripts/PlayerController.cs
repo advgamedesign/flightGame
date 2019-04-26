@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
+    #region Variable Declaration/Initialization
 
+    //-----------SCORE/HEALTH VARIABLES----------
     //Variables used for score and health
     [HideInInspector] public int score = 0;
     [HideInInspector] public int playerHealth = 5;
 
+
+    //-------------MOVEMENT VARIABLES---------------
     //Plane Movement Speeds
     [SerializeField] private float forwardSpeed;
 
@@ -22,7 +26,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float MaxHeight;
     [SerializeField] private float MinHeight;
 
-    //----Bullet Info----
+
+    //-----------BULLET INFO VARIABLES----------
     [SerializeField] private float fireTime = 1f;
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private GameObject playerShip;
@@ -30,6 +35,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private int amountOfBullets = 40;
     List<GameObject> bullets;
     private bool isCoroutineExecuting = false;
+    private bool shouldExpand = true;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start() {
@@ -38,7 +46,7 @@ public class PlayerController : MonoBehaviour {
         //Instantiate all bullets
         bullets = new List<GameObject>();
         for(int i = 0; i < amountOfBullets; i++) {
-            GameObject obj = (GameObject)Instantiate(bulletObject, transform.forward, Quaternion.identity);
+            GameObject obj = (GameObject)Instantiate(bulletObject);
             obj.SetActive(false);
             bullets.Add(obj);
         }
@@ -157,8 +165,8 @@ public class PlayerController : MonoBehaviour {
 
         for(int i = 0; i < bullets.Count; i++) {
             if(!bullets[i].activeInHierarchy) {
-                bullets[i].transform.position = transform.position;
-                bullets[i].transform.rotation = transform.rotation;
+                bullets[i].transform.position = transform.position + Vector3.forward * 20f + Vector3.right;
+                bullets[i].transform.rotation = bulletObject.transform.rotation;
                 bullets[i].SetActive(true);
                 break;
             }
