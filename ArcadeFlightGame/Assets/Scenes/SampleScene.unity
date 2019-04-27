@@ -2256,7 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToLoad:
-    m_Handle: 0
+    m_Handle: 3
   playerObject: {fileID: 756326890}
 --- !u!1 &1296762850
 GameObject:

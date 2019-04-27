@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    [HideInInspector] public int playerScore = 0;
+    public int playerHealth = 5;
+    [HideInInspector] public float playerTime = 0f;
+
     [SerializeField] private Scene SceneToLoad;
     //[SerializeField] private Scene LeaderboardScene;
     private void Awake() {
@@ -13,6 +17,8 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame() {
         Time.timeScale = 1f;
+        PlayerPrefs.SetInt("PlayerScore", playerScore);
+        PlayerPrefs.SetInt("PlayerHealth", playerHealth);
         SceneManager.LoadScene(SceneToLoad.handle);
     }
 

@@ -8,9 +8,8 @@ public class PlayerController : MonoBehaviour {
 
     //-----------SCORE/HEALTH VARIABLES----------
     //Variables used for score and health
-    [HideInInspector] public int score = 0;
-    [HideInInspector] public int playerHealth = 5;
-
+    private int playerScore;
+    private int playerHealth;
 
     //-------------MOVEMENT VARIABLES---------------
     //Plane Movement Speeds
@@ -50,6 +49,9 @@ public class PlayerController : MonoBehaviour {
             obj.SetActive(false);
             bullets.Add(obj);
         }
+
+        playerScore = PlayerPrefs.GetInt("PlayerScore");
+        playerHealth = PlayerPrefs.GetInt("PlayerHealth");
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour {
         //Need to add actual health instances
         if(Input.GetKeyDown(KeyCode.P)) {
             playerHealth -= 1;
+            PlayerPrefs.SetInt("PlayerHealth", playerHealth);
             //Debug.Log("Player health: " + playerHealth);
         }
 
@@ -72,7 +75,9 @@ public class PlayerController : MonoBehaviour {
         //----TEMPORARY----
         //Need to add actual health instances
         if(Input.GetKeyDown(KeyCode.M)) {
-            score += 12;
+            playerScore += 12;
+            PlayerPrefs.SetInt("PlayerScore", playerScore);
+            //Debug.Log("Player score: " + playerScore);
         }
 
         #endregion

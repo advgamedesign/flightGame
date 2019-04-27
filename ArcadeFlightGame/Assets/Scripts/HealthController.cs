@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class HealthController : MonoBehaviour
 {
     [SerializeField] private Scene SceneToLoad;
-    [SerializeField] private GameObject playerObject;
     private int health;
 
     private GameObject heart1;
@@ -15,7 +14,7 @@ public class HealthController : MonoBehaviour
     private GameObject heart4;
     private GameObject heart5;
 
-    private PlayerController pc;
+    //private PlayerController pc;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +23,14 @@ public class HealthController : MonoBehaviour
         heart3 = GameObject.Find("Heart3");
         heart4 = GameObject.Find("Heart4");
         heart5 = GameObject.Find("Heart5");
-        playerObject = GameObject.Find("PlayerShip");
-        pc = playerObject.GetComponent<PlayerController>();
-        health = pc.playerHealth;
+
+        health = PlayerPrefs.GetInt("PlayerHealth");
     }
 
     // Update is called once per frame
     void Update()
     {
-        health = pc.playerHealth;
+        health = PlayerPrefs.GetInt("PlayerHealth");
         //Debug.Log("Health: " + health);
 
         if(health == 5) {
