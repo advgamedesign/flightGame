@@ -15,7 +15,12 @@ public class RandomSIde2Side : MonoBehaviour
     private void Start()
     {
         current = Random.Range(0, 3);
-        height = Random.Range(-5, 5);
+        height = Random.Range(-10, 10);
+        
+        foreach(Transform point in points)
+        {
+            point.position = point.position + Vector3.up * height;
+        }
         
     }
 
