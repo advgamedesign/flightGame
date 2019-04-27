@@ -1106,7 +1106,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6174816123484860330}
   - component: {fileID: 6174816123484860324}
-  - component: {fileID: 6174816123484860331}
   m_Layer: 0
   m_Name: EnemyFormation Side to Side
   m_TagString: Untagged
@@ -1150,24 +1149,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6174816123484860331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6174816123484860329}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fbe0f854adc8be4db9f28031f9c60a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rail:
-  - {fileID: 0}
-  - {fileID: 0}
-  speed: 40
-  time: 2
-  force: 200
 --- !u!1001 &5039902286866513232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1312,15 +1293,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29f787363953c14cb53c5e858aac28f, type: 3}
---- !u!1 &6174816121922764942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: b29f787363953c14cb53c5e858aac28f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6174816121922668076}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6174816121922280622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b29f787363953c14cb53c5e858aac28f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6174816121922668076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6174816121922764942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: b29f787363953c14cb53c5e858aac28f,
     type: 3}
   m_PrefabInstance: {fileID: 6174816121922668076}
   m_PrefabAsset: {fileID: 0}

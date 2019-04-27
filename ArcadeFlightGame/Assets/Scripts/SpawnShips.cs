@@ -10,6 +10,7 @@ public class SpawnShips : MonoBehaviour
     public float spawnDelay;
     public int ships;
     public int spawned;
+    public int delayMultiplier;
 
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class SpawnShips : MonoBehaviour
         {
             Instantiate(ship, transform.position, transform.rotation);
             spawned++;
+            spawnDelay = spawnDelay + delayMultiplier;
         }
         else
         {

@@ -9,8 +9,7 @@ public class FormationMovement : MonoBehaviour
     public float speed;
 
     private int current;
-    public int time = 2;
-    public float force = 200;
+  
 
 
 
