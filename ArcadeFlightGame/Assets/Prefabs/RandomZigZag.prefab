@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 4139570507158431733}
   - component: {fileID: 4139570507158431732}
   - component: {fileID: 4139570507158431735}
+  - component: {fileID: 8528669214853814213}
+  - component: {fileID: 8769851346790031271}
   m_Layer: 0
   m_Name: RandomZigZag
   m_TagString: Untagged
@@ -110,3 +112,28 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 043bc9efda5659442bc6f124c807b60f, type: 2}
   m_EnableTreeColliders: 1
+--- !u!114 &8528669214853814213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139570507158431734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cead9bc597839774bbd821c5e4d87270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &8769851346790031271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139570507158431734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 428.80164, y: 211.23187, z: 216.98657}
+  m_Center: {x: 314.55914, y: 62.98593, z: 108.493286}

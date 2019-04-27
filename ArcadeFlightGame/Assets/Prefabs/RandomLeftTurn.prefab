@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 663245267}
   - component: {fileID: 3295470142207143117}
   - component: {fileID: 4977821663326731518}
+  - component: {fileID: 3556430757677941585}
+  - component: {fileID: 7302397479819042091}
   m_Layer: 0
   m_Name: RandomLeftTurn
   m_TagString: Untagged
@@ -110,3 +112,28 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 014e04518b129f44b9fed28534ff1841, type: 2}
   m_EnableTreeColliders: 1
+--- !u!114 &3556430757677941585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259648283856288730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cead9bc597839774bbd821c5e4d87270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7302397479819042091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259648283856288730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 468.04272, y: 157.42078, z: 183.84178}
+  m_Center: {x: 307.59607, y: 55.68039, z: 102.05088}

@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 1330609084933501881}
   - component: {fileID: 1330609084933501880}
   - component: {fileID: 1330609084933501883}
+  - component: {fileID: 3907132144261977905}
+  - component: {fileID: 7127301442651004272}
   m_Layer: 0
   m_Name: RandomStright
   m_TagString: Untagged
@@ -110,3 +112,28 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: dc28f3adad5041f4ba2cc9505e0d1bd3, type: 2}
   m_EnableTreeColliders: 1
+--- !u!65 &3907132144261977905
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330609084933501882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 405.0785, y: 127.825195, z: 208.54785}
+  m_Center: {x: 331.67426, y: 63.912598, z: 94.273926}
+--- !u!114 &7127301442651004272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330609084933501882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cead9bc597839774bbd821c5e4d87270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
