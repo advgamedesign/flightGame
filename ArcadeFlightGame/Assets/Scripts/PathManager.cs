@@ -12,12 +12,12 @@ public class PathManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
+        
         for (int i = 0; i < 10; i++)
         {
             SpawnPath();
         }
-        */
+        
     }
 
     // Update is called once per frame
@@ -26,11 +26,14 @@ public class PathManager : MonoBehaviour
         
     }
 
-    /*
+    
     public void SpawnPath()
     {
-        currentPath = (GameObject)Instantiate(pathPrefabs[2], currentPath.transform.GetChild(1).position, Quaternion.identity);
+        //Generating a random number between 0 and 3
+        int randomIndex = Random.Range(0, 4);
+
+        currentPath = (GameObject)Instantiate(pathPrefabs[randomIndex], currentPath.transform.GetChild(0).position, Quaternion.identity);
 
     }
-    */
+    
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 547652443}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3295470142207143117}
   - component: {fileID: 4977821663326731518}
   m_Layer: 0
-  m_Name: RandomLeftTurn 1
+  m_Name: RandomLeftTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
