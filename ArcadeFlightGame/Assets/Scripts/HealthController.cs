@@ -7,6 +7,7 @@ public class HealthController : MonoBehaviour
 {
     [SerializeField] private Scene SceneToLoad;
     private int health;
+    [HideInInspector] public float finalTime;
 
     private GameObject heart1;
     private GameObject heart2;

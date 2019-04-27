@@ -455,12 +455,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1442767750}
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -528,7 +528,6 @@ GameObject:
   - component: {fileID: 485378896}
   - component: {fileID: 485378898}
   - component: {fileID: 485378897}
-  - component: {fileID: 485378899}
   m_Layer: 5
   m_Name: score
   m_TagString: Untagged
@@ -678,20 +677,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485378895}
   m_CullTransparentMesh: 0
---- !u!114 &485378899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485378895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5138506b18eb4cffbdeb170efdd8cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  scoreText: {fileID: 0}
 --- !u!1 &948007564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1577,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 222371981}
   sceneToLoad:
-    m_Handle: 0
+    m_Handle: 2
+  scoreText: {fileID: 485378897}
+  timeText: {fileID: 1785917314}
 --- !u!1 &1609268596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1734,6 @@ GameObject:
   - component: {fileID: 1785917313}
   - component: {fileID: 1785917315}
   - component: {fileID: 1785917314}
-  - component: {fileID: 1785917316}
   m_Layer: 5
   m_Name: time
   m_TagString: Untagged
@@ -1897,19 +1883,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785917312}
   m_CullTransparentMesh: 0
---- !u!114 &1785917316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785917312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc681abf686fc41609eac9c15240dd2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 1785917314}
 --- !u!1 &2117324349
 GameObject:
   m_ObjectHideFlags: 0

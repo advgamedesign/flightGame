@@ -15,13 +15,7 @@ public class LeaderboardController : MonoBehaviour
     
     private void Awake()
     {
-        //entryContainer = transform.Find("LeaderboardEntriesContainer");
-        //entryTemplate = entryContainer.Find("LeaderboardEntries");
-
         entryTemplate.gameObject.SetActive(false);
-
-        //Add new entry
-        //AddHighscoreEntry(8.82f, "JSG");
 
         //Load Save data
         string jsonString = PlayerPrefs.GetString("highscoreTable");
@@ -31,13 +25,13 @@ public class LeaderboardController : MonoBehaviour
         //Sort the times
         for(int i = 0; i < highscores._highscoreEntryList.Count; i++) {
             for(int j = i + 1; j < highscores._highscoreEntryList.Count; j++) {
-                if(highscores._highscoreEntryList[j].time < highscores._highscoreEntryList[i].time) {
+                /*if(highscores._highscoreEntryList[j].time < highscores._highscoreEntryList[i].time) {
                     //Swap Places
                     HighscoreEntry temp = highscores._highscoreEntryList[i];
                     highscores._highscoreEntryList[i] = highscores._highscoreEntryList[j];
                     highscores._highscoreEntryList[j] = temp;
 
-                }
+                }*/
             }
         }
         
@@ -85,12 +79,12 @@ public class LeaderboardController : MonoBehaviour
         }
         entryTransform.Find("RANK entries").GetComponent<TextMeshProUGUI>().text = rankString;
 
-        string name = highscoreEntry.name;
-        entryTransform.Find("NAME entries").GetComponent<TextMeshProUGUI>().text = name;
+        string playerName = PlayerPrefs.GetString("PlayerName");
+        entryTransform.Find("NAME entries").GetComponent<TextMeshProUGUI>().text = playerName;
 
-        //May need to change variable datatype to Time
-        float time = highscoreEntry.time;
-        entryTransform.Find("TIME entries").GetComponent<TextMeshProUGUI>().text = time.ToString();
+
+        string playerTime = PlayerPrefs.GetString("PlayerTime");
+        entryTransform.Find("TIME entries").GetComponent<TextMeshProUGUI>().text = playerTime;
 
         transformList.Add(entryTransform);
     }
@@ -101,7 +95,7 @@ public class LeaderboardController : MonoBehaviour
     private void AddHighscoreEntry(float _time, string _name)
     {
         //Creates Entry
-        HighscoreEntry highscoreEntry = new HighscoreEntry { time = _time, name = _name };
+        HighscoreEntry highscoreEntry = new HighscoreEntry { time = PlayerPrefs.GetString("PlayerTime"), name = PlayerPrefs.GetString("PlayerName") };
 
         //Load Save data
         string jsonString = PlayerPrefs.GetString("highscoreTable");
@@ -130,7 +124,7 @@ public class LeaderboardController : MonoBehaviour
      [System.Serializable]
     private class HighscoreEntry
     {
-        public float time;
+        public string time;
         public string name;
     }
 }

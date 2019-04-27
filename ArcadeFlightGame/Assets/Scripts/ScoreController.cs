@@ -8,13 +8,6 @@ public class ScoreController : MonoBehaviour {
     private int score;
 
     [SerializeField] private TextMeshProUGUI scoreText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //playerObject = GameObject.Find("PlayerShip");
-        //pc = playerObject.GetComponent<PlayerController>();
-        score = PlayerPrefs.GetInt("PlayerScore");
-    }
 
     // Update is called once per frame
     void Update()
