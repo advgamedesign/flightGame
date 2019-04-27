@@ -10,14 +10,26 @@ public class EnemyMovement : MonoBehaviour
     private int current;
 
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
+
+        if (other.name == points[0].name)
+        {
+            speed = 30;
+        }
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+
         if (transform.position != points[current].position)
         {
 
-            Vector3 pos = Vector3.MoveTowards(transform.position, points[current].position, speed * Time.deltaTime);
-            GetComponent<Rigidbody>().MovePosition(pos);
+            Vector3 p = Vector3.MoveTowards(transform.position, points[current].position, speed * Time.deltaTime);
+            GetComponent<Rigidbody>().MovePosition(p);
 
         }
 

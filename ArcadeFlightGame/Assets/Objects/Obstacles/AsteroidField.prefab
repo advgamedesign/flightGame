@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7950689563059902294}
   - component: {fileID: 7950689563059902299}
   - component: {fileID: 7950689563059902300}
+  - component: {fileID: 4248661489180790876}
   m_Layer: 0
   m_Name: asteroid1 (1)
   m_TagString: Untagged
@@ -143,6 +144,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &4248661489180790876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689561094951374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689561272997982
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +177,7 @@ GameObject:
   - component: {fileID: 7950689562680769059}
   - component: {fileID: 7950689562680769064}
   - component: {fileID: 7950689562680769065}
+  - component: {fileID: 4165779593430230829}
   m_Layer: 0
   m_Name: asteroid1 (3)
   m_TagString: Untagged
@@ -286,6 +306,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &4165779593430230829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689561272997982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689561438889304
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +339,7 @@ GameObject:
   - component: {fileID: 7950689562946480985}
   - component: {fileID: 7950689562946480990}
   - component: {fileID: 7950689562946480991}
+  - component: {fileID: 4063866529412750745}
   m_Layer: 0
   m_Name: asteroid1 (4)
   m_TagString: Untagged
@@ -429,6 +468,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &4063866529412750745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689561438889304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689561538572135
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +501,7 @@ GameObject:
   - component: {fileID: 7950689561150135336}
   - component: {fileID: 7950689561150135341}
   - component: {fileID: 7950689561150135342}
+  - component: {fileID: 6997175930653877755}
   m_Layer: 0
   m_Name: asteroid1 (2)
   m_TagString: Untagged
@@ -572,6 +630,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &6997175930653877755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689561538572135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689561594243605
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +663,7 @@ GameObject:
   - component: {fileID: 7950689561603946988}
   - component: {fileID: 7950689561603946989}
   - component: {fileID: 7950689561603946990}
+  - component: {fileID: 5869525059225101290}
   m_Layer: 0
   m_Name: asteroid1 (7)
   m_TagString: Untagged
@@ -715,6 +792,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &5869525059225101290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689561594243605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689562186935645
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +865,7 @@ GameObject:
   - component: {fileID: 7950689561211353188}
   - component: {fileID: 7950689561211353189}
   - component: {fileID: 7950689561211353190}
+  - component: {fileID: 5495843722969622395}
   m_Layer: 0
   m_Name: asteroid1 (6)
   m_TagString: Untagged
@@ -898,6 +994,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &5495843722969622395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689562500426320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689562511779471
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +1027,7 @@ GameObject:
   - component: {fileID: 7950689562290331772}
   - component: {fileID: 7950689562290331773}
   - component: {fileID: 7950689562290331774}
+  - component: {fileID: 2177627782543577517}
   m_Layer: 0
   m_Name: asteroid1 (8)
   m_TagString: Untagged
@@ -1041,6 +1156,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &2177627782543577517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689562511779471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689562571355090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1189,7 @@ GameObject:
   - component: {fileID: 7950689561694519293}
   - component: {fileID: 7950689561694519294}
   - component: {fileID: 7950689561694519295}
+  - component: {fileID: 1826528959356097595}
   m_Layer: 0
   m_Name: asteroid1
   m_TagString: Untagged
@@ -1184,6 +1318,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &1826528959356097595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689562571355090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689562678264397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1351,7 @@ GameObject:
   - component: {fileID: 7950689562687101354}
   - component: {fileID: 7950689562687101355}
   - component: {fileID: 7950689562687101356}
+  - component: {fileID: 226388844377675698}
   m_Layer: 0
   m_Name: asteroid1 (5)
   m_TagString: Untagged
@@ -1327,6 +1480,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &226388844377675698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689562678264397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
 --- !u!1 &7950689563031026606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1513,7 @@ GameObject:
   - component: {fileID: 7950689562260479095}
   - component: {fileID: 7950689562260479096}
   - component: {fileID: 7950689562260479097}
+  - component: {fileID: 5433514442139828461}
   m_Layer: 0
   m_Name: asteroid1 (9)
   m_TagString: Untagged
@@ -1470,3 +1642,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.1
   driftSpeed: 0.1
+  MaxHeight: 30
+  MinHeight: 0
+--- !u!114 &5433514442139828461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950689563031026606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d0efc85fe2cbc4cae386709a49ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockShattered: {fileID: 3164243211311330703, guid: 676e1fcc9f485f949af5bbad65939836,
+    type: 3}
+  health: 2
+  mat: {fileID: 2100000, guid: f9ce4b5b272e62e47b0c83a957786c1a, type: 2}
