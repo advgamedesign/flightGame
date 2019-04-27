@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   playerHealth: 5
-  forwardSpeed: 0
+  forwardSpeed: 80
   directionalSpeed: 40
   roll: 10
   MaxHeight: 80
@@ -1691,7 +1691,7 @@ MonoBehaviour:
   bulletObject: {fileID: 4293175274729168285, guid: 3735ad9cb4df14e42b0c87302f7ca0e8,
     type: 3}
   playerShip: {fileID: 756326890}
-  amountOfBullets: 40
+  amountOfBullets: 20
 --- !u!4 &756326892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea,
