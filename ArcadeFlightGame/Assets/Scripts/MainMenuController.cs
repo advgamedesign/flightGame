@@ -9,7 +9,7 @@ public class MainMenuController : MonoBehaviour
     public int playerHealth = 5;
 
     [SerializeField] private Scene SceneToLoad;
-    //[SerializeField] private Scene LeaderboardScene;
+    [SerializeField] private Scene LeaderboardScene;
     private void Awake() {
         //Time.timeScale = 0f;
         Debug.Log("Scene Opened: " + SceneManager.GetActiveScene().name);
@@ -22,9 +22,9 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene(SceneToLoad.handle);
     }
 
-    /*public void LeaderboardMenu() {
+    public void LeaderboardMenu() {
         SceneManager.LoadScene(LeaderboardScene.handle);
-    }*/
+    }
 
     public void QuitGame() {
         Debug.Log("Quitting Game...");
