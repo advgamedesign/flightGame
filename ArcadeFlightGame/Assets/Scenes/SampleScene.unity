@@ -1682,8 +1682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   playerHealth: 5
-  forwardSpeed: 150
-  directionalSpeed: 75
+  forwardSpeed: 80
+  directionalSpeed: 40
   roll: 10
   MaxHeight: 80
   MinHeight: 2
@@ -1691,7 +1691,7 @@ MonoBehaviour:
   bulletObject: {fileID: 4293175274729168285, guid: 3735ad9cb4df14e42b0c87302f7ca0e8,
     type: 3}
   playerShip: {fileID: 756326890}
-  amountOfBullets: 40
+  amountOfBullets: 20
 --- !u!4 &756326892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea,
@@ -2194,7 +2194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToLoad:
-    m_Handle: 0
+    m_Handle: 3
   playerObject: {fileID: 756326890}
 --- !u!1 &1296762850
 GameObject:

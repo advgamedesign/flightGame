@@ -1,0 +1,203 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+
+public class LeaderboardController : MonoBehaviour
+{
+
+    [SerializeField] private Transform entryContainer;
+    [SerializeField] private Transform entryTemplate;
+    [SerializeField] private Button scoreSortButton;
+    [SerializeField] private Button timeSortButton;
+    [SerializeField] private Scene sceneToLoad;
+
+    private List<Transform> highscoreEntryTransformList;
+
+    private void Awake() {
+        entryTemplate.gameObject.SetActive(false);
+
+
+        //Load Save file
+        string loadJsonEntryList = PlayerPrefs.GetString("LeaderboardEntries");
+        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(loadJsonEntryList);
+
+
+        //If time or Score is a new highscore...
+        if(PlayerPrefs.GetFloat("PlayerTimeFloat") > highscores.entries[9].timeFloat || PlayerPrefs.GetInt("PlayerScore") > highscores.entries[9].playerScore) { 
+            //...Add new entry
+            AddHighscoreEntry(PlayerPrefs.GetFloat("PlayerTimeFloat"),
+                PlayerPrefs.GetString("PlayerTimeString"),
+                PlayerPrefs.GetInt("PlayerScore"),
+                PlayerPrefs.GetString("PlayerName"));
+        }
+
+
+        ScoreSortedLeaderboard();
+    }
+
+    private void Start() {
+        scoreSortButton.onClick.AddListener(ScoreSortedLeaderboard);
+        timeSortButton.onClick.AddListener(TimeSortedLeaderboard);
+    }
+
+    private void DestroyOldHighscoreEntryTransform(Transform container) {
+        //Disable
+        for(int i = 0; i < container.childCount; ++i) {
+            container.GetChild(i).gameObject.SetActive(false);
+        }
+
+    }
+
+    private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList) {
+        float templateHeight = 70f;
+        Transform entryTransform = Instantiate(entryTemplate, container);
+        RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
+        entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
+        entryRectTransform.gameObject.SetActive(true);
+
+        //Values for Rank
+        int rank = transformList.Count + 1;
+        string rankString;
+        switch(rank) {
+            case 1:
+            rankString = rank + "ST";
+            break;
+            case 2:
+            rankString = rank + "ND";
+            break;
+            case 3:
+            rankString = rank + "RD";
+            break;
+            default:
+            rankString = rank + "TH";
+            break;
+        }
+        //Display in Leaderboard
+        entryTransform.Find("RANK entries").GetComponent<TextMeshProUGUI>().text = rankString;
+
+        //Values for Time
+        float timeFloat = highscoreEntry.timeFloat;
+        string timeString = highscoreEntry.timeString;
+        //Display in Leaderboard
+        entryTransform.Find("TIME entries").GetComponent<TextMeshProUGUI>().text = timeString;
+
+        //Values for Score
+        int playerScore = highscoreEntry.playerScore;
+        //Display in Leaderboard
+        entryTransform.Find("SCORE entries").GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
+
+        //Values for Name
+        string playerName = highscoreEntry.playerName;
+        entryTransform.Find("NAME entries").GetComponent<TextMeshProUGUI>().text = playerName;
+
+        //Add to entry list
+        transformList.Add(entryTransform);
+    }
+
+    //Used for json
+    public class HighscoreList {
+        public List<HighscoreEntry> entries;
+    }
+
+    [System.Serializable]
+    public class HighscoreEntry {
+        public float timeFloat;
+        public string timeString;
+        public int playerScore;
+        public string playerName;
+    }
+
+    private void AddHighscoreEntry(float timeFloat, string timeString, int playerScore, string playerName) {
+        //Setup Entry Values
+        HighscoreEntry highscoreEntry = new HighscoreEntry {
+            timeFloat = timeFloat,
+            timeString = timeString,
+            playerScore = playerScore,
+            playerName = playerName
+        };
+
+        //Load Save file
+        string loadJsonEntryList = PlayerPrefs.GetString("LeaderboardEntries");
+        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(loadJsonEntryList);
+
+        //Add new entry to list
+        highscores.entries.Add(highscoreEntry);
+
+        //Convert highscoreList to Json file
+        string saveJsonEntryList = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString("LeaderboardEntries", saveJsonEntryList);
+        PlayerPrefs.Save();
+    }
+
+    private void TimeSortedLeaderboard() {
+        //Load Save file
+        string json = PlayerPrefs.GetString("LeaderboardEntries");
+        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(json);
+
+        //Sort highscoreEntryList...
+        for(int i = 0; i<highscores.entries.Count; i++) {
+            for(int j = i+1; j<highscores.entries.Count; j++) {
+                //...by timeFloat
+                if(highscores.entries[j].timeFloat > highscores.entries[i].timeFloat) {
+                    //Swap
+                    HighscoreEntry temp = highscores.entries[i];
+                    highscores.entries[i] = highscores.entries[j];
+                    highscores.entries[j] = temp;
+
+                }
+            }
+        }
+
+        //Destroy Old Leaderboard Entries
+        for(int i = 0; i<10; i++) {
+            DestroyOldHighscoreEntryTransform(entryContainer);
+        }
+
+        //Display 10 highscoreEntries from HighscoreEntryList ^^^
+        highscoreEntryTransformList = new List<Transform>();
+        for(int i = 0; i<10; i++) {
+            CreateHighscoreEntryTransform(highscores.entries[i], entryContainer, highscoreEntryTransformList);
+        }
+    }
+
+    private void ScoreSortedLeaderboard() {
+        //Load Save file
+        string json = PlayerPrefs.GetString("LeaderboardEntries");
+        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(json);
+
+        //Sort highscoreEntryList...
+        for(int i = 0; i<highscores.entries.Count; i++) {
+            for(int j = i+1; j<highscores.entries.Count; j++) {
+                //...by playerScore
+                if(highscores.entries[j].playerScore > highscores.entries[i].playerScore) {
+                    //Swap
+                    HighscoreEntry temp = highscores.entries[i];
+                    highscores.entries[i] = highscores.entries[j];
+                    highscores.entries[j] = temp;
+
+                }
+            }
+        }
+
+        //Destroy Old Leaderboard Entries
+        for(int i = 0; i<10; i++) {
+            DestroyOldHighscoreEntryTransform(entryContainer);
+        }
+
+        //Display 10 highscoreEntries from HighscoreEntryList ^^^
+        highscoreEntryTransformList = new List<Transform>();
+        for(int i = 0; i<10; i++) {
+            CreateHighscoreEntryTransform(highscores.entries[i], entryContainer, highscoreEntryTransformList);
+        }
+    }
+
+    //Return to Main Menu
+    public void LoadMainMenu() {
+        Time.timeScale = 1f;
+        Debug.Log("Opening Scene: " + sceneToLoad.name);
+        SceneManager.LoadScene(sceneToLoad.handle);
+    }
+}
