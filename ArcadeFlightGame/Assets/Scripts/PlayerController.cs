@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float MinHeight;
 
 
+    //---------BOOSTING VARIABLES--------
+    [SerializeField] private float boostTime;
+    [SerializeField] private float boostDirectionalSpeed;
+    [SerializeField] private float boostForwardSpeed;
+    [SerializeField] private float brakeSpeed;
+
+
     //-----------BULLET INFO VARIABLES----------
     [SerializeField] private float fireTime = 1f;
     [SerializeField] private GameObject bulletObject;
@@ -146,6 +153,28 @@ public class PlayerController : MonoBehaviour {
         #region Shooting
         if(Input.GetKey(KeyCode.Space)) {
             StartCoroutine("Fire", fireTime);
+        }
+        #endregion
+
+        #region Boosting/Braking
+        //-----Forward Boost(W Key)-----
+        if(Input.GetKeyDown(KeyCode.W)) {
+
+        }
+
+        //-----Right Boost(S Key)-----
+        if(Input.GetKeyDown(KeyCode.S)) {
+
+        }
+
+        //-----Left Boost(A Key)-----
+        if(Input.GetKeyDown(KeyCode.A)) {
+
+        }
+
+        //-----Right Boost(D Key)-----
+        if(Input.GetKeyDown(KeyCode.D)) {
+
         }
         #endregion
 
