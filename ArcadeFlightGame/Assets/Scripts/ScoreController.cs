@@ -18,3 +18,4 @@ public class ScoreController : MonoBehaviour {
         scoreText.text = score.ToString();
     }
 }
+

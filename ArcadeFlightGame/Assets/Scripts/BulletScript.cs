@@ -13,4 +13,6 @@ public class BulletScript : MonoBehaviour
     {
         transform.Translate(shooter.transform.position.x, shooter.transform.position.y, speed * Time.deltaTime, Space.World);
     }
+
+
 }
