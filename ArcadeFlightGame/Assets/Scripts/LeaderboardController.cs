@@ -47,7 +47,7 @@ public class LeaderboardController : MonoBehaviour {
                 PlayerPrefs.GetString("PlayerName"));
         }
         else if(PlayerPrefs.GetInt("AddEntry") == 1) {
-            if(PlayerPrefs.GetFloat("PlayerTimeFloat") > highscores.entries[highscores.entries.Count - 1].timeFloat || PlayerPrefs.GetInt("PlayerScore") > highscores.entries[highscores.entries.Count - 1].playerScore) {
+            if(PlayerPrefs.GetFloat("PlayerTimeFloat") > highscores.entries[9].timeFloat || PlayerPrefs.GetInt("PlayerScore") > highscores.entries[9].playerScore) {
                 //...Add new entry
                 AddHighscoreEntry(PlayerPrefs.GetFloat("PlayerTimeFloat"),
                     PlayerPrefs.GetString("PlayerTimeString"),
