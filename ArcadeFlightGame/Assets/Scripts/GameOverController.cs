@@ -38,8 +38,8 @@ public class GameOverController : MonoBehaviour
     }
 
     public void LoadScene() {
-        Time.timeScale = 1f;
         Debug.Log("Opening Scene: " + sceneToLoad.name);
         SceneManager.LoadScene(sceneToLoad.handle);
+        PlayerPrefs.SetInt("AddEntry", 1);
     }
 }

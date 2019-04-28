@@ -1170,6 +1170,7 @@ MonoBehaviour:
     m_Handle: 1
   LeaderboardScene:
     m_Handle: 2
+  leaderBoardButton: {fileID: 1916792388}
 --- !u!1 &1868483512
 GameObject:
   m_ObjectHideFlags: 0
