@@ -19,7 +19,7 @@ public class LeaderboardController : MonoBehaviour {
     private void Awake() {
         entryTemplate.gameObject.SetActive(false);
 
-        Debug.Log("Add Entry? " + PlayerPrefs.GetInt("AddEntry"));
+        //Debug.Log("Add Entry? " + PlayerPrefs.GetInt("AddEntry"));
 
         if(!PlayerPrefs.HasKey("LeaderboardEntries")) {
             //Convert highscoreList to Json file
