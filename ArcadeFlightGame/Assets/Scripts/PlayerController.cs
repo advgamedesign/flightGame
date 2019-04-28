@@ -230,12 +230,12 @@ public class PlayerController : MonoBehaviour {
 
         isCoroutineExecuting = true;
 
-        float normalizedTime = 0f;
+        float totalTime = 0f;
 
-        while(normalizedTime <= 1f) {
+        while(totalTime <= boostDuration) {
             //Boost Left
             transform.position += Camera.main.transform.right * -boostDirectionalSpeed * Time.deltaTime;
-            normalizedTime = Time.deltaTime / boostDuration;
+            totalTime += Time.deltaTime;
         }
 
         yield return new WaitForSeconds(time);
@@ -250,12 +250,12 @@ public class PlayerController : MonoBehaviour {
 
         isCoroutineExecuting = true;
 
-        float normalizedTime = 0f;
+        float totalTime = 0f;
 
-        while(normalizedTime <= 1f) {
+        while(totalTime <= boostDuration) {
             //Boost Right
             transform.position += Camera.main.transform.right * boostDirectionalSpeed * Time.deltaTime;
-            normalizedTime = Time.deltaTime / boostDuration;
+            totalTime += Time.deltaTime;
         }
 
         yield return new WaitForSeconds(time);
@@ -270,12 +270,12 @@ public class PlayerController : MonoBehaviour {
 
         isCoroutineExecuting = true;
 
-        float normalizedTime = 0f;
+        float totalTime = 0f;
 
-        while(normalizedTime <= 1f) {
+        while(totalTime <= boostDuration) {
             //Boost Forward
             transform.position += transform.forward * boostForwardSpeed * Time.deltaTime;
-            normalizedTime = Time.deltaTime / boostDuration;
+            totalTime += Time.deltaTime;
         }
 
         yield return new WaitForSeconds(time);
@@ -290,12 +290,12 @@ public class PlayerController : MonoBehaviour {
 
         isCoroutineExecuting = true;
 
-        float normalizedTime = 0f;
+        float totalTime = 0f;
 
-        while(normalizedTime <= 1f) {
+        while(totalTime <= boostDuration) {
             //Brake
             transform.position += transform.forward * brakeSpeed * Time.deltaTime;
-            normalizedTime = Time.deltaTime / boostDuration;
+            totalTime += Time.deltaTime;
         }
 
         yield return new WaitForSeconds(time);
@@ -315,5 +315,11 @@ public class PlayerController : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    private void OnTriggerExit(Collider other) {
+
+        Vector3 resetMotion = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        this.transform.position = resetMotion;
     }
 }
