@@ -9,11 +9,26 @@ public class PathManager : MonoBehaviour
 
     public GameObject currentPath;
 
+    private static PathManager instance;
+    
+    public static PathManager Instance
+    {
+
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<PathManager>();
+            }
+             return PathManager.instance; 
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 1; i++)
         {
             SpawnPath();
         }

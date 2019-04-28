@@ -6,6 +6,8 @@ public class PathScript : MonoBehaviour
 {
     //[SerializeField] private GameObject playerShip;
     // Start is called before the first frame update
+
+
     void Start()
     {
         
@@ -17,12 +19,21 @@ public class PathScript : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider create)
     {
        
-        if (other.CompareTag("Player"))
+        if (create.CompareTag("Player"))
         {
-            Debug.Log("Spawn Path");
+            PathManager.Instance.SpawnPath();
+
+        }
+    }
+
+    private void OnTriggerExit(Collider destory)
+    {
+        if (destory.CompareTag("Player"))
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7830991934856832172}
   - component: {fileID: 7830991934856832171}
   - component: {fileID: 7830991934856832170}
+  - component: {fileID: 8129193775781504929}
+  - component: {fileID: 8453775013704834574}
   m_Layer: 0
   m_Name: Split
   m_TagString: Untagged
@@ -79,3 +81,28 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 419d52cae74928d4ab4e1ac1da34bfe8, type: 2}
   m_EnableTreeColliders: 1
+--- !u!114 &8129193775781504929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830991934856832169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d63b44cf557904696209201b5ce8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &8453775013704834574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830991934856832169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 314.25812, y: 332.2712, z: 215.02539}
+  m_Center: {x: 305.57022, y: 91.135605, z: 882.5127}
