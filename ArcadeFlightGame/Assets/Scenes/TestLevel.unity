@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 1389294976}
   - component: {fileID: 1389294975}
   - component: {fileID: 1389294974}
+  - component: {fileID: 1389294977}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -555,6 +556,115 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389294977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389294973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280dcf45e897cd4cbecfa2a1c8f748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1713782161}
+  distance: 10
+  height: 5
+  heightDamping: 2
+  yAxisRotationDamping: 3
+--- !u!1001 &1713782159
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_Name
+      value: ship1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 265.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+--- !u!1 &1713782160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: bee8ad483f3ece94c9a75d685d23deea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1713782159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1713782161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1713782159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1713782162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713782160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3428b4a763b1f3c4895885e880efdb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  playerHealth: 5
+  forwardSpeed: 150
+  directionalSpeed: 40
+  roll: 75
+  MaxHeight: 80
+  MinHeight: 1
+  fireTime: 1
+  bulletObject: {fileID: 0}
+  playerShip: {fileID: 0}
+  amountOfBullets: 40
 --- !u!1001 &1772151150
 PrefabInstance:
   m_ObjectHideFlags: 0
