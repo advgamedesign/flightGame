@@ -15,23 +15,46 @@ public class LeaderboardController : MonoBehaviour
     [SerializeField] private Scene sceneToLoad;
 
     private List<Transform> highscoreEntryTransformList;
-
+    private HighscoreList highscores;
     private void Awake() {
         entryTemplate.gameObject.SetActive(false);
 
+        if (!PlayerPrefs.HasKey("LeaderboardEntries"))
+        {
+            //Convert highscoreList to Json file
+            highscores = new HighscoreList { entries = new List<HighscoreEntry>() };
+            string saveJsonEntryList = JsonUtility.ToJson(highscores);
+            PlayerPrefs.SetString("LeaderboardEntries", saveJsonEntryList);
+            PlayerPrefs.Save();
 
-        //Load Save file
-        string loadJsonEntryList = PlayerPrefs.GetString("LeaderboardEntries");
-        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(loadJsonEntryList);
-
+        }
+        else
+        {
+            //Load Save file
+            string loadJsonEntryList = PlayerPrefs.GetString("LeaderboardEntries");
+            highscores = JsonUtility.FromJson<HighscoreList>(loadJsonEntryList);
+        }
 
         //If time or Score is a new highscore...
-        if(PlayerPrefs.GetFloat("PlayerTimeFloat") > highscores.entries[9].timeFloat || PlayerPrefs.GetInt("PlayerScore") > highscores.entries[9].playerScore) { 
+
+        if(highscores.entries.Count == 0)
+        {
             //...Add new entry
             AddHighscoreEntry(PlayerPrefs.GetFloat("PlayerTimeFloat"),
-                PlayerPrefs.GetString("PlayerTimeString"),
-                PlayerPrefs.GetInt("PlayerScore"),
-                PlayerPrefs.GetString("PlayerName"));
+            PlayerPrefs.GetString("PlayerTimeString"),
+            PlayerPrefs.GetInt("PlayerScore"),
+            PlayerPrefs.GetString("PlayerName"));
+        }
+        else
+        {
+            if (PlayerPrefs.GetFloat("PlayerTimeFloat") > highscores.entries[highscores.entries.Count - 1].timeFloat || PlayerPrefs.GetInt("PlayerScore") > highscores.entries[highscores.entries.Count - 1].playerScore)
+            {
+                //...Add new entry
+                AddHighscoreEntry(PlayerPrefs.GetFloat("PlayerTimeFloat"),
+                    PlayerPrefs.GetString("PlayerTimeString"),
+                    PlayerPrefs.GetInt("PlayerScore"),
+                    PlayerPrefs.GetString("PlayerName"));
+            }
         }
 
 
@@ -121,7 +144,7 @@ public class LeaderboardController : MonoBehaviour
 
         //Load Save file
         string loadJsonEntryList = PlayerPrefs.GetString("LeaderboardEntries");
-        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(loadJsonEntryList);
+        HighscoreList  highscores = JsonUtility.FromJson<HighscoreList>(loadJsonEntryList);
 
         //Add new entry to list
         highscores.entries.Add(highscoreEntry);
@@ -135,7 +158,7 @@ public class LeaderboardController : MonoBehaviour
     private void TimeSortedLeaderboard() {
         //Load Save file
         string json = PlayerPrefs.GetString("LeaderboardEntries");
-        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(json);
+         highscores = JsonUtility.FromJson<HighscoreList>(json);
 
         //Sort highscoreEntryList...
         for(int i = 0; i<highscores.entries.Count; i++) {
@@ -150,7 +173,7 @@ public class LeaderboardController : MonoBehaviour
                 }
             }
         }
-
+        Debug.Log(PlayerPrefs.GetString("LeaderboardEntries"));
         //Destroy Old Leaderboard Entries
         for(int i = 0; i<10; i++) {
             DestroyOldHighscoreEntryTransform(entryContainer);
@@ -158,7 +181,15 @@ public class LeaderboardController : MonoBehaviour
 
         //Display 10 highscoreEntries from HighscoreEntryList ^^^
         highscoreEntryTransformList = new List<Transform>();
-        for(int i = 0; i<10; i++) {
+        int length = 10;
+
+        if (highscoreEntryTransformList.Count - 1 <= 10)
+        {
+            length = highscoreEntryTransformList.Count - 1;
+        }
+
+        for (int i = 0; i < length; i++)
+        {
             CreateHighscoreEntryTransform(highscores.entries[i], entryContainer, highscoreEntryTransformList);
         }
     }
@@ -166,7 +197,7 @@ public class LeaderboardController : MonoBehaviour
     private void ScoreSortedLeaderboard() {
         //Load Save file
         string json = PlayerPrefs.GetString("LeaderboardEntries");
-        HighscoreList highscores = JsonUtility.FromJson<HighscoreList>(json);
+        highscores = JsonUtility.FromJson<HighscoreList>(json);
 
         //Sort highscoreEntryList...
         for(int i = 0; i<highscores.entries.Count; i++) {
@@ -181,15 +212,22 @@ public class LeaderboardController : MonoBehaviour
                 }
             }
         }
-
+        Debug.Log(PlayerPrefs.GetString("LeaderboardEntries"));
         //Destroy Old Leaderboard Entries
-        for(int i = 0; i<10; i++) {
+        for (int i = 0; i<10; i++) {
             DestroyOldHighscoreEntryTransform(entryContainer);
         }
 
         //Display 10 highscoreEntries from HighscoreEntryList ^^^
         highscoreEntryTransformList = new List<Transform>();
-        for(int i = 0; i<10; i++) {
+        int length = 10;
+        
+        if(highscoreEntryTransformList.Count-1 <= 10)
+        {
+            length = highscoreEntryTransformList.Count - 1;
+        }
+        
+        for(int i = 0; i<length; i++) {
             CreateHighscoreEntryTransform(highscores.entries[i], entryContainer, highscoreEntryTransformList);
         }
     }
