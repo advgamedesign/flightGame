@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.50175065, g: 0.27028337, b: 0.21009141, a: 1}
+  m_IndirectSpecularColor: {r: 0.50174946, g: 0.27028418, b: 0.21009427, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1684,6 +1684,11 @@ MonoBehaviour:
   roll: 10
   MaxHeight: 80
   MinHeight: 2
+  boostCooldownTime: 10
+  boostDuration: 0.5
+  boostDirectionalSpeed: 200
+  boostForwardSpeed: 200
+  brakeSpeed: 30
   fireTime: 0.25
   bulletObject: {fileID: 4293175274729168285, guid: 3735ad9cb4df14e42b0c87302f7ca0e8,
     type: 3}
@@ -3180,7 +3185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

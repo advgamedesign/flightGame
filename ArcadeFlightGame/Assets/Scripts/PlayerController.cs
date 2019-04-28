@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour {
 
 
     //---------BOOSTING VARIABLES--------
-    [SerializeField] private float boostTime;
+    [SerializeField] private float boostCooldownTime;
+    [SerializeField] private float boostDuration;
     [SerializeField] private float boostDirectionalSpeed;
     [SerializeField] private float boostForwardSpeed;
     [SerializeField] private float brakeSpeed;
@@ -115,10 +116,13 @@ public class PlayerController : MonoBehaviour {
 
         //------Right Arrow Key------
 
-        //When Right Arrow key is pushed down
-        if(Input.GetKey(KeyCode.RightArrow)) {
-            //Transform Position Z to Move Player Right
-            transform.position += Camera.main.transform.right * directionalSpeed * Time.deltaTime;
+        //Check that we are not boosting Left or Right
+        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) {
+            //When Right Arrow key is pushed down
+            if(Input.GetKey(KeyCode.RightArrow)) {
+                //Transform Position Z to Move Player Right
+                transform.position += Camera.main.transform.right * directionalSpeed * Time.deltaTime;
+            }
         }
 
         //Rotation handling for Right Arrow
@@ -129,15 +133,16 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.RightArrow)) {
             transform.Rotate(0, 0, roll);
         }
-
         //------Left Arrow Key------
 
-        //When Left Arrow Key is pushed down
-        if(Input.GetKey(KeyCode.LeftArrow)) {
-            //Transform Position Z to Move Player Left
-            transform.position += Camera.main.transform.right * -directionalSpeed * Time.deltaTime;
+        //Check that we are not boosting Left or Right
+        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) {
+            //When Left Arrow Key is pushed down
+            if(Input.GetKey(KeyCode.LeftArrow)) {
+                //Transform Position Z to Move Player Left
+                transform.position += Camera.main.transform.right * -directionalSpeed * Time.deltaTime;
+            }
         }
-
 
         //Rotation handling for Left Arrow
         if(Input.GetKeyDown(KeyCode.LeftArrow)) {
@@ -159,22 +164,22 @@ public class PlayerController : MonoBehaviour {
         #region Boosting/Braking
         //-----Forward Boost(W Key)-----
         if(Input.GetKeyDown(KeyCode.W)) {
-
+            StartCoroutine("ForwardBoost", boostCooldownTime);
         }
 
         //-----Right Boost(S Key)-----
         if(Input.GetKeyDown(KeyCode.S)) {
-
+            StartCoroutine("Brake", boostCooldownTime);
         }
 
         //-----Left Boost(A Key)-----
         if(Input.GetKeyDown(KeyCode.A)) {
-
+            StartCoroutine("LeftBoost", boostCooldownTime);
         }
 
         //-----Right Boost(D Key)-----
         if(Input.GetKeyDown(KeyCode.D)) {
-
+            StartCoroutine("RightBoost", boostCooldownTime);
         }
         #endregion
 
@@ -187,7 +192,11 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
 
-        transform.position += transform.forward * forwardSpeed * Time.deltaTime;
+        //Check that we are not Boosting Forward or Braking
+        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S)) {
+            //Move at normal forward speed
+            transform.position += transform.forward * forwardSpeed * Time.deltaTime;
+        }
     }
 
     IEnumerator Fire(float time) {
@@ -210,6 +219,95 @@ public class PlayerController : MonoBehaviour {
 
         isCoroutineExecuting = false;
     }
+
+
+    #region Boosting Methods
+
+    IEnumerator LeftBoost(float time) {
+
+        if(isCoroutineExecuting)
+            yield break;
+
+        isCoroutineExecuting = true;
+
+        float normalizedTime = 0f;
+
+        while(normalizedTime <= 1f) {
+            //Boost Left
+            transform.position += Camera.main.transform.right * -boostDirectionalSpeed * Time.deltaTime;
+            normalizedTime = Time.deltaTime / boostDuration;
+        }
+
+        yield return new WaitForSeconds(time);
+
+        isCoroutineExecuting = false;
+    }
+
+    IEnumerator RightBoost(float time) {
+
+        if(isCoroutineExecuting)
+            yield break;
+
+        isCoroutineExecuting = true;
+
+        float normalizedTime = 0f;
+
+        while(normalizedTime <= 1f) {
+            //Boost Right
+            transform.position += Camera.main.transform.right * boostDirectionalSpeed * Time.deltaTime;
+            normalizedTime = Time.deltaTime / boostDuration;
+        }
+
+        yield return new WaitForSeconds(time);
+
+        isCoroutineExecuting = false;
+    }
+
+    IEnumerator ForwardBoost(float time) {
+
+        if(isCoroutineExecuting)
+            yield break;
+
+        isCoroutineExecuting = true;
+
+        float normalizedTime = 0f;
+
+        while(normalizedTime <= 1f) {
+            //Boost Forward
+            transform.position += transform.forward * boostForwardSpeed * Time.deltaTime;
+            normalizedTime = Time.deltaTime / boostDuration;
+        }
+
+        yield return new WaitForSeconds(time);
+
+        isCoroutineExecuting = false;
+    }
+
+    IEnumerator Brake(float time) {
+
+        if(isCoroutineExecuting)
+            yield break;
+
+        isCoroutineExecuting = true;
+
+        float normalizedTime = 0f;
+
+        while(normalizedTime <= 1f) {
+            //Brake
+            transform.position += transform.forward * brakeSpeed * Time.deltaTime;
+            normalizedTime = Time.deltaTime / boostDuration;
+        }
+
+        yield return new WaitForSeconds(time);
+
+        isCoroutineExecuting = false;
+    }
+
+    #endregion
+
+
+
+
 
     private void OnTriggerEnter(Collider other)
     {
