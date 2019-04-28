@@ -145,7 +145,7 @@ MonoBehaviour:
   rotationSpeed: 0.1
   driftSpeed: 0.1
   MaxHeight: 30
-  MinHeight: 0
+  MinHeight: 5
 --- !u!114 &5815154801523932155
 MonoBehaviour:
   m_ObjectHideFlags: 0

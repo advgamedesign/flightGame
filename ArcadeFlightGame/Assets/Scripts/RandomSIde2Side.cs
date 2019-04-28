@@ -107,10 +107,7 @@ public class RandomSIde2Side : MonoBehaviour
 
     void Die()
     {
-        //Activate the death object
-        deathEffect.SetActive(true);
-        //Detach it from the turret
-        deathEffect.transform.SetParent(null);
+        Instantiate(deathEffect, transform.position, transform.rotation);
 
         //Destroy the turret
         Destroy(gameObject);

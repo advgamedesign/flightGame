@@ -17,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
     public float spawnTime;
     public float spawnDelay;
     //public int delayMultiplier;
+    public GameObject deathEffect;
 
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +27,11 @@ public class EnemyMovement : MonoBehaviour
         {
             speed = 30;
             startFiring = true;
+        }
+
+        if (other.tag == "playerBullet")
+        {
+            Die();
         }
 
     }
@@ -75,5 +81,13 @@ public class EnemyMovement : MonoBehaviour
 
         
 
+    }
+
+    void Die()
+    {
+        Instantiate(deathEffect, transform.position, transform.rotation);
+
+        //Destroy the turret
+        Destroy(gameObject);
     }
 }

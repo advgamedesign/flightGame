@@ -251,6 +251,16 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 1170952262879489102, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170952262879489100, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4.19
+      objectReference: {fileID: 0}
     - target: {fileID: 1676012355401880708, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
         type: 3}
       propertyPath: points.Array.data[0]

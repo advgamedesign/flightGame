@@ -587,7 +587,7 @@ MeshRenderer:
   m_GameObject: {fileID: 756326890}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1929,6 +1929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bee8ad483f3ece94c9a75d685d23deea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100
@@ -2072,7 +2076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 826453875, guid: add1e35ba7114b74d92e6fa4163d01f2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 826453879, guid: add1e35ba7114b74d92e6fa4163d01f2, type: 3}
       propertyPath: m_LocalPosition.x
