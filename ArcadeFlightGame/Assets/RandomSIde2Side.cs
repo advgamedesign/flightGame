@@ -19,6 +19,7 @@ public class RandomSIde2Side : MonoBehaviour
     public float spawnTime;
     public float spawnDelay;
     //public int delayMultiplier;
+    public GameObject deathEffect;
 
 
 
@@ -44,6 +45,11 @@ public class RandomSIde2Side : MonoBehaviour
             speed = 30;
             startFiring = true;
 
+        }
+
+        if(other.tag == "playerBullet")
+        {
+            Die();
         }
 
     }
@@ -98,5 +104,18 @@ public class RandomSIde2Side : MonoBehaviour
             GetComponent<Rigidbody>().MovePosition(-p);
 
     }
+
+    void Die()
+    {
+        //Activate the death object
+        deathEffect.SetActive(true);
+        //Detach it from the turret
+        deathEffect.transform.SetParent(null);
+
+        //Destroy the turret
+        Destroy(gameObject);
+    }
+
+
 
 }

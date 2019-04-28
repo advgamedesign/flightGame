@@ -186,22 +186,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170952263354314227}
     m_Modifications:
-    - target: {fileID: 4813443422278598967, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
-        type: 3}
-      propertyPath: proj
-      value: 
-      objectReference: {fileID: 639969122254083242, guid: d27b4126e8432f145a88b14d226732df,
-        type: 3}
-    - target: {fileID: 4813443422278598967, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579725041365182162, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1170952262859565437, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
         type: 3}
       propertyPath: m_Name
@@ -335,6 +319,27 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676012355401880708, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 100006, guid: eecc745af3e0d314cad305669f243368, type: 3}
+    - target: {fileID: 6579725041365182162, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813443422278598967, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: proj
+      value: 
+      objectReference: {fileID: 639969122254083242, guid: d27b4126e8432f145a88b14d226732df,
+        type: 3}
+    - target: {fileID: 4813443422278598967, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4813443422278598967, guid: 8c31e9b4bf79ea243836b82c8c64cb4c, type: 3}
