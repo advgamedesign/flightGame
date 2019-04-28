@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: playerBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 4524084322934137258, guid: d27b4126e8432f145a88b14d226732df,
+        type: 3}
+      propertyPath: speed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 639969122254083247, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,11 +76,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524084322934137258, guid: d27b4126e8432f145a88b14d226732df,
-        type: 3}
-      propertyPath: speed
-      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d27b4126e8432f145a88b14d226732df, type: 3}
