@@ -19,6 +19,7 @@ public class LeaderboardController : MonoBehaviour
     private void Awake() {
         entryTemplate.gameObject.SetActive(false);
 
+        PlayerPrefs.DeleteKey("LeaderboardEntries");
 
         //Load Save file
         string loadJsonEntryList = PlayerPrefs.GetString("LeaderboardEntries");
@@ -155,7 +156,7 @@ public class LeaderboardController : MonoBehaviour
         for(int i = 0; i<10; i++) {
             DestroyOldHighscoreEntryTransform(entryContainer);
         }
-
+        Debug.Log(PlayerPrefs.GetString("LeaderboardEntries"));
         //Display 10 highscoreEntries from HighscoreEntryList ^^^
         highscoreEntryTransformList = new List<Transform>();
         for(int i = 0; i<10; i++) {
@@ -181,7 +182,7 @@ public class LeaderboardController : MonoBehaviour
                 }
             }
         }
-
+        Debug.Log(PlayerPrefs.GetString("LeaderboardEntries"));
         //Destroy Old Leaderboard Entries
         for(int i = 0; i<10; i++) {
             DestroyOldHighscoreEntryTransform(entryContainer);
