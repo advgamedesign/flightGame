@@ -20,18 +20,9 @@ public class EnemyFire : MonoBehaviour
     float cool;
     //Within what rage the turret becomes active and can shoot
     public float range;
-    //Speed at which the turret rotates
-    public float rotateSpeed = 15;
 
-    //The turret graphic. This is the part that will rotate to face the player.
-    public Transform turret;
-
-    //GameObject to be created when the turret is destroyed
-    public GameObject deathEffect;
-
-    //Health
-    public int hpMax = 1;
-    public int hp = 1;
+    public Transform bulletSpawner;
+    
 
     AudioSource au;
 
@@ -56,24 +47,24 @@ public class EnemyFire : MonoBehaviour
         if (target != null)
         {
             //If the target is in range
-            if (Vector3.Distance(target.position, turret.position) < range)
+            if (Vector3.Distance(target.position, bulletSpawner.position) < range)
             {
                 //Calculate which position the turret will aim at
                 Vector3 targetPos = CalculateLead();
 
                 //Get the direction to that position
-                Vector3 targetDir = targetPos - turret.position;
+                Vector3 targetDir = targetPos - bulletSpawner.position;
 
                 //New dir is the rotation the turret will use
-                Quaternion newDir = Quaternion.LookRotation(targetDir, transform.up);
+                //Quaternion newDir = Quaternion.LookRotation(targetDir, transform.up);
                 //Rotate the turret to newDir by rotateSpeed
-                turret.rotation = Quaternion.Slerp(turret.rotation, newDir, rotateSpeed * Time.deltaTime);
+                //turret.rotation = Quaternion.Slerp(bulletSpawner.rotation, newDir, rotateSpeed * Time.deltaTime);
 
                 //Get the angle between the turret and the target's direction
-                float angleToTarget = Vector3.Angle(turret.forward, targetDir);
+                float angleToTarget = Vector3.Angle(bulletSpawner.forward, targetDir);
 
                 //If we can shoot, can see the player and the angle to the target is low enough
-                if (cool <= 0 && !Physics.Linecast(turret.position, target.position, sceneMask) && angleToTarget < 0.5f)
+                if (cool <= 0)
                 {
                     //Shoot
                     Shoot();
@@ -84,17 +75,17 @@ public class EnemyFire : MonoBehaviour
         else
         {
             //Find target
-            target = GameObject.FindWithTag("PlayerShip").transform;
+            target = GameObject.Find("PlayerShip").transform;
         }
 
-        if (hp <= 0)
-            Die();
+        //if (hp <= 0)
+           // Die();
     }
 
     void Shoot()
     {
         //Get the direction the shot will move
-        Vector3 direction = turret.forward;
+        Vector3 direction = -bulletSpawner.forward;
 
         //For each shot the turret needs to fire
         for (int i = shotCount; i > 0; i--)
@@ -102,7 +93,7 @@ public class EnemyFire : MonoBehaviour
             if (proj != null)
             {
                 //Create the projectile
-                GameObject shot = (GameObject)Instantiate(proj, turret.position - turret.forward, Quaternion.LookRotation(direction));
+                GameObject shot = (GameObject)Instantiate(proj, bulletSpawner.position - bulletSpawner.forward, Quaternion.LookRotation(direction));
                 //Disable collisions between the shot's collider and the turret's
                 Physics.IgnoreCollision(shot.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
                 //Apply the spread
@@ -119,7 +110,7 @@ public class EnemyFire : MonoBehaviour
     Vector3 CalculateLead()
     {
         //Get the distance between the turret and the target
-        float dist = (turret.position - target.position).magnitude;
+        float dist = (bulletSpawner.position - target.position).magnitude;
         //Time it should take for the projectile to reach the target. Time = distance/speed
         float timeToTarget = dist / projSpeed;
         //Get the speed of the target object
@@ -131,13 +122,13 @@ public class EnemyFire : MonoBehaviour
         return newTargetPosition;
     }
 
-    void ApplyDMG(int d)
+    /*void ApplyDMG(int d)
     {
         //Apply incoming damage to health
         hp -= d;
-    }
+    }*/
 
-    void Die()
+    /*void Die()
     {
         //Activate the death object
         deathEffect.SetActive(true);
@@ -146,5 +137,5 @@ public class EnemyFire : MonoBehaviour
 
         //Destroy the turret
         Destroy(gameObject);
-    }
+    }*/
 }

@@ -176,4 +176,12 @@ public class PlayerController : MonoBehaviour {
 
         isCoroutineExecuting = false;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "enemyBullet")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 }

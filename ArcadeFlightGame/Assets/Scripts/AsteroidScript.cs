@@ -21,7 +21,7 @@ public class AsteroidScript : MonoBehaviour
     void Start()
     {
        
-        rotationAxis = new Vector3(Random.Range(0, 100), Random.Range(0, 100), Random.Range(0, 100));
+        rotationAxis = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100));
         driftDirection = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100));
         health = 3;
 
@@ -34,13 +34,13 @@ public class AsteroidScript : MonoBehaviour
         transform.Translate(driftDirection * driftSpeed * Time.deltaTime);
         transform.Rotate(rotationAxis * rotationSpeed * Time.deltaTime);
 
-        if (transform.position.y > MaxHeight)
+        if (transform.position.y >= MaxHeight)
         {
             transform.position = new Vector3(transform.position.x, MaxHeight, transform.position.z);
             driftDirection = driftDirection * -1;
         }
             
-        if (transform.position.y < MinHeight)
+        if (transform.position.y <= MinHeight)
         {
             transform.position = new Vector3(transform.position.x, MinHeight, transform.position.z);
             driftDirection = driftDirection * -1;

@@ -11,10 +11,21 @@ public class RockShatter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    
-        if(other.name == "PlayerShip") {
-            health--;
 
+        if(other.name == "PlayerShip")
+        {
+            Instantiate(rockShattered, transform.position, transform.rotation);
+            //rockShattered.GetComponent<Renderer>().material = mat;
+            Destroy(gameObject);
+        }
+
+
+    
+        if(other.tag == "playerBullet") {
+            health--;
+            
+            Destroy(other);
+            
             if (health > 0)
             {
                 GetComponent<Renderer>().material = mat; 
