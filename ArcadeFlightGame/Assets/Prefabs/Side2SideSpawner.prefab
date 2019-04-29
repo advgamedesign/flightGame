@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826453879}
+  - component: {fileID: 826453876}
   - component: {fileID: 826453878}
   - component: {fileID: 826453877}
-  - component: {fileID: 826453876}
+  - component: {fileID: 1575097582130665646}
   m_Layer: 0
   m_Name: Side2SideSpawner
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,6 +35,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &826453876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826453875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84318ecbe95a8424aab85ac5247f0f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 1170952263354314226, guid: e9762496faeaae44cbc2acc13407b12e, type: 3}
+  stopSpawning: 0
+  spawnTime: 0
+  spawnDelay: 1
+  ships: 10
+  spawned: 0
+  delayMultiplier: 0
 --- !u!114 &826453878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +85,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &826453876
+--- !u!114 &1575097582130665646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,16 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 826453875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84318ecbe95a8424aab85ac5247f0f00, type: 3}
+  m_Script: {fileID: 11500000, guid: e275a6bca462f1d4abd88d25dafebb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 1170952263354314226, guid: e9762496faeaae44cbc2acc13407b12e, type: 3}
-  stopSpawning: 0
-  spawnTime: 0
-  spawnDelay: 1
-  ships: 10
-  spawned: 0
-  delayMultiplier: 0
 --- !u!1 &1080021466
 GameObject:
   m_ObjectHideFlags: 0

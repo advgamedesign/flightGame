@@ -114,12 +114,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3428b4a763b1f3c4895885e880efdb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 50
-  directionalSpeed: 20
-  turnSpeed: 0
+  forwardSpeed: 150
+  directionalSpeed: 60
   roll: 20
   MaxHeight: 35
   MinHeight: 10
+  fireTime: 0.5
+  bulletObject: {fileID: 0}
+  playerShip: {fileID: 0}
+  amountOfBullets: 40
 --- !u!1 &4513088568314831931
 GameObject:
   m_ObjectHideFlags: 0
