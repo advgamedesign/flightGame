@@ -29,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isCoroutineExecuting = false;
     //private bool shouldExpand = true;
     public int timer;
+    public int shipSpeed;
 
 
 
@@ -54,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (other.name == points[current].name)
         {
-            speed = 30;
+            speed = shipSpeed;
             startFiring = true;
 
         }
