@@ -30,6 +30,7 @@ public class RandomSIde2Side : MonoBehaviour
     List<GameObject> bullets;
     private bool isCoroutineExecuting = false;
     //private bool shouldExpand = true;
+    public int timer;
 
 
 
@@ -50,6 +51,8 @@ public class RandomSIde2Side : MonoBehaviour
             obj.SetActive(false);
             bullets.Add(obj);
         }
+
+        Destroy(gameObject, timer);
 
     }
 

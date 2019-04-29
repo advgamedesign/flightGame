@@ -19,21 +19,61 @@ public class EnemyMovement : MonoBehaviour
     //public int delayMultiplier;
     public GameObject deathEffect;
 
+    //-----------BULLET INFO VARIABLES----------
+    [SerializeField] private float fireTime = 1f;
+    [SerializeField] private GameObject bulletObject;
+    [SerializeField] private GameObject enemyShip;
+
+    [SerializeField] private int amountOfBullets = 40;
+    List<GameObject> bullets;
+    private bool isCoroutineExecuting = false;
+    //private bool shouldExpand = true;
+    public int timer;
+
+
+
+    private void Start()
+    {
+      
+
+        bullets = new List<GameObject>();
+        for (int i = 0; i < amountOfBullets; i++)
+        {
+            GameObject obj = (GameObject)Instantiate(bulletObject);
+            obj.SetActive(false);
+            bullets.Add(obj);
+        }
+
+        Destroy(gameObject, timer);
+
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.name == points[0].name)
+        if (other.name == points[current].name)
         {
             speed = 30;
             startFiring = true;
+
         }
 
         if (other.tag == "playerBullet")
         {
             Die();
+            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "playerBullet")
+        {
+            Die();
+            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
+        }
     }
 
     private void Update()
@@ -47,6 +87,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
 
 
         if (transform.position != points[current].position)
@@ -64,23 +105,39 @@ public class EnemyMovement : MonoBehaviour
 
         if (startFiring)
         {
-            if (!firing)
-            {
-                firing = true;
-                InvokeRepeating("SpawnNewBullet", spawnTime, spawnDelay);
-            }
+
+
+            firing = true;
+            StartCoroutine("Fire", fireTime);
+
 
         }
+
+
     }
 
-    public void SpawnNewBullet()
+    IEnumerator Fire(float time)
     {
 
+        if (isCoroutineExecuting)
+            yield break;
 
-        Instantiate(bullet, bulletSpawner.position, bulletSpawner.rotation);
+        isCoroutineExecuting = true;
 
-        
+        for (int i = 0; i < bullets.Count; i++)
+        {
+            if (!bullets[i].activeInHierarchy)
+            {
+                bullets[i].transform.position = transform.position + Vector3.forward * -50f + Vector3.right;
+                bullets[i].transform.rotation = bulletObject.transform.rotation;
+                bullets[i].SetActive(true);
+                break;
+            }
+        }
 
+        yield return new WaitForSeconds(time);
+
+        isCoroutineExecuting = false;
     }
 
     void Die()
@@ -90,4 +147,16 @@ public class EnemyMovement : MonoBehaviour
         //Destroy the turret
         Destroy(gameObject);
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Player")
+        {
+            Die();
+            PlayerPrefs.SetInt("PlayerHealth", PlayerPrefs.GetInt("PlayerHealth") - 1);
+        }
+    }
+
+
+
 }
