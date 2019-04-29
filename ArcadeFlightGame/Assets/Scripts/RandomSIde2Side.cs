@@ -21,19 +21,35 @@ public class RandomSIde2Side : MonoBehaviour
     //public int delayMultiplier;
     public GameObject deathEffect;
 
+    //-----------BULLET INFO VARIABLES----------
+    [SerializeField] private float fireTime = 1f;
+    [SerializeField] private GameObject bulletObject;
+    [SerializeField] private GameObject enemyShip;
+
+    [SerializeField] private int amountOfBullets = 40;
+    List<GameObject> bullets;
+    private bool isCoroutineExecuting = false;
+    //private bool shouldExpand = true;
 
 
 
     private void Start()
     {
         current = Random.Range(0, 3);
-        height = Random.Range(-10, 10);
+        height = Random.Range(0, 30);
         
         foreach(Transform point in points)
         {
             point.position = point.position + Vector3.up * height;
         }
-        
+
+        bullets = new List<GameObject>();
+        for (int i = 0; i < amountOfBullets; i++)
+        {
+            GameObject obj = (GameObject)Instantiate(bulletObject);
+            obj.SetActive(false);
+            bullets.Add(obj);
+        }
 
     }
 
@@ -50,8 +66,18 @@ public class RandomSIde2Side : MonoBehaviour
         if(other.tag == "playerBullet")
         {
             Die();
+            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "playerBullet")
+        {
+            Die();
+            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
+        }
     }
 
     private void Update()
@@ -83,26 +109,39 @@ public class RandomSIde2Side : MonoBehaviour
 
         if (startFiring)
         {
-            if (!firing)
-            {
+           
+         
                 firing = true;
-                InvokeRepeating("SpawnNewBullet", spawnTime, spawnDelay);
-            }
+                StartCoroutine("Fire", fireTime);
+            
              
         }
 
         
     }
 
-    public void SpawnNewBullet()
+    IEnumerator Fire(float time)
     {
-            
-       
-            Instantiate(bullet,bulletSpawner.position, bulletSpawner.rotation);
-            
-            Vector3 p = Vector3.MoveTowards(transform.position, player.transform.position, bulletSpeed * Time.deltaTime);
-            GetComponent<Rigidbody>().MovePosition(-p);
 
+        if (isCoroutineExecuting)
+            yield break;
+
+        isCoroutineExecuting = true;
+
+        for (int i = 0; i < bullets.Count; i++)
+        {
+            if (!bullets[i].activeInHierarchy)
+            {
+                bullets[i].transform.position = transform.position + Vector3.forward * - 50f + Vector3.right;
+                bullets[i].transform.rotation = bulletObject.transform.rotation;
+                bullets[i].SetActive(true);
+                break;
+            }
+        }
+
+        yield return new WaitForSeconds(time);
+
+        isCoroutineExecuting = false;
     }
 
     void Die()
@@ -111,6 +150,15 @@ public class RandomSIde2Side : MonoBehaviour
 
         //Destroy the turret
         Destroy(gameObject);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Player")
+        {
+            Die();
+            PlayerPrefs.SetInt("PlayerHealth", PlayerPrefs.GetInt("PlayerHealth") - 1);
+        }
     }
 
 

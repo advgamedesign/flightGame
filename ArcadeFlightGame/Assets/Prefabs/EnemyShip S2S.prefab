@@ -246,6 +246,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1170952262859142493, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170952262859142493, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170952262859142493, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1170952262879489102, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
         type: 3}
       propertyPath: m_Constraints
@@ -256,10 +271,25 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1170952262879489102, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170952262879489102, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1170952262879489100, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
         type: 3}
       propertyPath: m_Radius
-      value: 4.19
+      value: 3.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170952262879489100, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1676012355401880708, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
         type: 3}
@@ -280,7 +310,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bulletObject
       value: 
-      objectReference: {fileID: 4293175274729168285, guid: 3735ad9cb4df14e42b0c87302f7ca0e8,
+      objectReference: {fileID: 639969122254083242, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
     - target: {fileID: 1676012355401880708, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
         type: 3}
@@ -335,6 +365,12 @@ PrefabInstance:
       propertyPath: deathEffect
       value: 
       objectReference: {fileID: 100006, guid: eecc745af3e0d314cad305669f243368, type: 3}
+    - target: {fileID: 1676012355401880708, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
+        type: 3}
+      propertyPath: enemyShip
+      value: 
+      objectReference: {fileID: 1170952263354314226, guid: e9762496faeaae44cbc2acc13407b12e,
+        type: 3}
     - target: {fileID: 6579725041365182162, guid: 8c31e9b4bf79ea243836b82c8c64cb4c,
         type: 3}
       propertyPath: m_IsActive

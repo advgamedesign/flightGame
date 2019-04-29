@@ -20,4 +20,15 @@ public class BulletDestroy : MonoBehaviour
     {
         CancelInvoke();
     }
+
+   /* private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag != "Terrain")
+        {
+            Destroy();
+        }
+         
+       
+
+    }*/
 }

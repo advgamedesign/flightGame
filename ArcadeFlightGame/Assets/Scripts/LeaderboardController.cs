@@ -39,7 +39,7 @@ public class LeaderboardController : MonoBehaviour {
 
         //If time or Score is a new highscore...
 
-        if(PlayerPrefs.GetInt("AddEntry") == 1 && highscores.entries.Count >= 0 && highscores.entries.Count <= 10) {
+        if(PlayerPrefs.GetInt("AddEntry") == 1 && highscores.entries.Count >= 0 && highscores.entries.Count < 10) {
             //...Add new entry
             AddHighscoreEntry(PlayerPrefs.GetFloat("PlayerTimeFloat"),
                 PlayerPrefs.GetString("PlayerTimeString"),

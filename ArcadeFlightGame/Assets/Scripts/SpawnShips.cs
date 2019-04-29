@@ -19,6 +19,19 @@ public class SpawnShips : MonoBehaviour
         InvokeRepeating("SpawnNewShip", spawnTime, spawnDelay);
     }
 
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        //ebug.Log("I collided");
+        if(other.tag == "Player")
+        {
+            Debug.Log("I collided...but better");
+            InvokeRepeating("SpawnNewShip", spawnTime, spawnDelay);
+        }
+    }
+
+    */
+
     // Update is called once per frame
     public void SpawnNewShip()
     {
