@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 4524084322934137258, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
       propertyPath: speed
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 639969122254083247, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
@@ -125,7 +125,7 @@ PrefabInstance:
     - target: {fileID: 6841934580592107407, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
       propertyPath: destroyTime
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6841934580592107407, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}

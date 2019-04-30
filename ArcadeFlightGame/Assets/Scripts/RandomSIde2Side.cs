@@ -37,7 +37,7 @@ public class RandomSIde2Side : MonoBehaviour
     private void Start()
     {
         current = Random.Range(0, 3);
-        height = Random.Range(0, 30);
+        height = Random.Range(-10, 30);
         
         foreach(Transform point in points)
         {
