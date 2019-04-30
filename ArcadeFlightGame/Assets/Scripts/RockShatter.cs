@@ -118,25 +118,7 @@ public class RockShatter : MonoBehaviour
 
     }*/
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-             health--;
-
-            if (health > 0)
-            {
-                GetComponent<Renderer>().material = mat;
-            }
-
-            else
-            {
-                Instantiate(rockShattered, transform.position, transform.rotation);
-                //rockShattered.GetComponent<Renderer>().material = mat;
-                Destroy(gameObject);
-            }
-        }
-    }
+  
     
     
 }

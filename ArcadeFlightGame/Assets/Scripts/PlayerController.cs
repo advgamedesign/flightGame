@@ -61,26 +61,14 @@ public class PlayerController : MonoBehaviour {
 
         #region Player Health
 
-        //----TEMPORARY----
-        //Need to add actual health instances
-        if(Input.GetKeyDown(KeyCode.P)) {
-            playerHealth -= 1;
-            PlayerPrefs.SetInt("PlayerHealth", playerHealth);
-            //Debug.Log("Player health: " + playerHealth);
-        }
+    
 
         #endregion
 
 
         #region Player Score
 
-        //----TEMPORARY----
-        //Need to add actual health instances
-        if(Input.GetKeyDown(KeyCode.M)) {
-            playerScore += 12;
-            PlayerPrefs.SetInt("PlayerScore", playerScore);
-            //Debug.Log("Player score: " + playerScore);
-        }
+     
 
         #endregion
 
