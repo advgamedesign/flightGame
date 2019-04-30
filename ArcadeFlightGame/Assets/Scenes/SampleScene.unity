@@ -4308,7 +4308,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1603058217}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296762850}
+  m_GameObject: {fileID: 1885148615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -6057,7 +6057,6 @@ GameObject:
   - component: {fileID: 1296762852}
   - component: {fileID: 1296762856}
   - component: {fileID: 1296762855}
-  - component: {fileID: 945308644}
   m_Layer: 5
   m_Name: Score/Timer
   m_TagString: Untagged
@@ -8844,6 +8843,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1885148615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945308644}
+  m_Layer: 0
+  m_Name: Recovery GameObject (945308644)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1890612412
 GameObject:
   m_ObjectHideFlags: 0
@@ -9631,6 +9646,10 @@ MonoBehaviour:
   - {fileID: 3857135583677200167, guid: 16f7b3b583bf7fc4493b96eb751b09ad, type: 3}
   - {fileID: 2296366033275534228, guid: be83626c64ee1c244ac86b4f28c03541, type: 3}
   - {fileID: 1709524246389255234, guid: df314642389a4094c97821470c375d8f, type: 3}
+  - {fileID: 1051040668659386185, guid: ad9de80965ff8ee488cf9ac4ee686e23, type: 3}
+  - {fileID: 1709524246389255234, guid: df314642389a4094c97821470c375d8f, type: 3}
+  - {fileID: 3857135583677200167, guid: 16f7b3b583bf7fc4493b96eb751b09ad, type: 3}
+  - {fileID: 2296366033275534228, guid: be83626c64ee1c244ac86b4f28c03541, type: 3}
   - {fileID: 1051040668659386185, guid: ad9de80965ff8ee488cf9ac4ee686e23, type: 3}
   currentPath: {fileID: 2127214259}
 --- !u!4 &2109801622
