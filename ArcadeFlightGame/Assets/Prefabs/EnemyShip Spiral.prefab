@@ -320,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7656086819651140393}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: 0}
+  m_LocalPosition: {x: 3.1, y: -4.6, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7656086821250969524}
@@ -1607,8 +1607,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7656086821250969527}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -7, y: 97.399994, z: 799.9}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -7, y: 215, z: 31}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 7656086819651140390}
   - {fileID: 2594821145802893921}
@@ -1696,3 +1696,11 @@ MonoBehaviour:
   spawnTime: 0
   spawnDelay: 1
   deathEffect: {fileID: 100006, guid: eecc745af3e0d314cad305669f243368, type: 3}
+  fireTime: 1
+  bulletObject: {fileID: 639969122254083242, guid: d27b4126e8432f145a88b14d226732df,
+    type: 3}
+  enemyShip: {fileID: 7656086820561128716, guid: 4c66ff9bf095bf348bc7017076694c38,
+    type: 3}
+  amountOfBullets: 40
+  timer: 10
+  shipSpeed: 50

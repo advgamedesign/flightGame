@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour {
 
         for(int i = 0; i < bullets.Count; i++) {
             if(!bullets[i].activeInHierarchy) {
-                bullets[i].transform.position = transform.position + Vector3.forward * 20f + Vector3.right;
+                bullets[i].transform.position = transform.position + Vector3.forward * 50f + Vector3.right;
                 bullets[i].transform.rotation = bulletObject.transform.rotation;
                 bulletSound.Play();
                 bullets[i].SetActive(true);
@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour {
     {
         if(other.tag == "enemyBullet")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            PlayerPrefs.SetInt("PlayerHealth", PlayerPrefs.GetInt("PlayerHealth") -1);
         }
     }
 }

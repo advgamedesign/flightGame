@@ -45,7 +45,7 @@ public class PathManager : MonoBehaviour
     public void SpawnPath()
     {
         //Generating a random number between 0 and 3
-        int randomIndex = Random.Range(0, 4);
+        int randomIndex = Random.Range(0, pathPrefabs.Length);
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomIndex], currentPath.transform.GetChild(0).position, Quaternion.identity);
 
