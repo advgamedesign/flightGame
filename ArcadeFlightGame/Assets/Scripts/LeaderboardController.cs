@@ -37,23 +37,13 @@ public class LeaderboardController : MonoBehaviour {
             //Debug.Log("Else Statement read");
         }
 
-        //If time or Score is a new highscore...
+        //Add new entry
 
-        if(PlayerPrefs.GetInt("AddEntry") == 1 && highscores.entries.Count >= 0 && highscores.entries.Count <= 10) {
-            //...Add new entry
+        if(PlayerPrefs.GetInt("AddEntry") == 1) {
             AddHighscoreEntry(PlayerPrefs.GetFloat("PlayerTimeFloat"),
                 PlayerPrefs.GetString("PlayerTimeString"),
                 PlayerPrefs.GetInt("PlayerScore"),
                 PlayerPrefs.GetString("PlayerName"));
-        }
-        else if(PlayerPrefs.GetInt("AddEntry") == 1) {
-            if(PlayerPrefs.GetFloat("PlayerTimeFloat") > highscores.entries[9].timeFloat || PlayerPrefs.GetInt("PlayerScore") > highscores.entries[9].playerScore) {
-                //...Add new entry
-                AddHighscoreEntry(PlayerPrefs.GetFloat("PlayerTimeFloat"),
-                    PlayerPrefs.GetString("PlayerTimeString"),
-                    PlayerPrefs.GetInt("PlayerScore"),
-                    PlayerPrefs.GetString("PlayerName"));
-            }
         }
 
 

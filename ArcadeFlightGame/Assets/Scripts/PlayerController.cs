@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 
 
     //-----------BULLET INFO VARIABLES----------
+    [SerializeField] private AudioSource bulletSound;
     [SerializeField] private float fireTime = 1f;
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private GameObject playerShip;
@@ -172,6 +173,7 @@ public class PlayerController : MonoBehaviour {
             if(!bullets[i].activeInHierarchy) {
                 bullets[i].transform.position = transform.position + Vector3.forward * 20f + Vector3.right;
                 bullets[i].transform.rotation = bulletObject.transform.rotation;
+                bulletSound.Play();
                 bullets[i].SetActive(true);
                 break;
             }
