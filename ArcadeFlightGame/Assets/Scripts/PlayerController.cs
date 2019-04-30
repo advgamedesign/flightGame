@@ -16,8 +16,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float forwardSpeed;
 
     //Speed of Arrow Key movement
-    [SerializeField] private float verticalSpeed;
-    [SerializeField] private float horizontalSpeed;
+    [SerializeField] private float directionalSpeed;
 
     //Plane Roll Angle
     [SerializeField] private float roll;
@@ -97,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         //When Up Arrow key is pushed down
         if(Input.GetKey(KeyCode.UpArrow)) {
             //Transform Position Z to Move Player Up
-            transform.Translate(0, transform.up.y * verticalSpeed * Time.deltaTime, 0, Camera.main.transform);
+            transform.Translate(0, transform.up.y * directionalSpeed * Time.deltaTime, 0, Camera.main.transform);
         }
 
         //------Down Arrow Key------
@@ -105,7 +104,7 @@ public class PlayerController : MonoBehaviour {
         //When Down Arrow key is pushed down
         if(Input.GetKey(KeyCode.DownArrow)) {
             //Transform Position Z to Move Player Down
-            transform.Translate(0, transform.up.y * -verticalSpeed * Time.deltaTime, 0, Camera.main.transform);
+            transform.Translate(0, transform.up.y * -directionalSpeed * Time.deltaTime, 0, Camera.main.transform);
         }
 
         //------Right Arrow Key------
@@ -113,7 +112,7 @@ public class PlayerController : MonoBehaviour {
         //When Right Arrow key is pushed down
         if(Input.GetKey(KeyCode.RightArrow)) {
             //Transform Position Z to Move Player Right
-            transform.position += Camera.main.transform.right * horizontalSpeed * Time.deltaTime;
+            transform.position += Camera.main.transform.right * directionalSpeed * Time.deltaTime;
         }
 
         //Rotation handling for Right Arrow
@@ -130,7 +129,7 @@ public class PlayerController : MonoBehaviour {
         //When Left Arrow Key is pushed down
         if(Input.GetKey(KeyCode.LeftArrow)) {
             //Transform Position Z to Move Player Left
-            transform.position += Camera.main.transform.right * -horizontalSpeed * Time.deltaTime;
+            transform.position += Camera.main.transform.right * -directionalSpeed * Time.deltaTime;
         }
 
 
