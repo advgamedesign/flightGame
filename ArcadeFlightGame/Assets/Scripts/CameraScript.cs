@@ -34,7 +34,7 @@ public class CameraScript : MonoBehaviour
         currentRotationAngleY = Mathf.LerpAngle(currentRotationAngleY, wantedRotationAngleY, yAxisRotationDamping * Time.deltaTime);
 
         //Height Position Damping
-        //currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+        currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
         //Convert Angle into Rotation
         var currentRotation = Quaternion.Euler(0, currentRotationAngleY, 0);
@@ -44,7 +44,7 @@ public class CameraScript : MonoBehaviour
         transform.position -= currentRotation * Vector3.forward * distance;
 
         //Set Camera Height Position
-        transform.position = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
+        transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
 
         //Look at Target
         transform.LookAt(target);
