@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 639969122254083244, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 639969122254083244, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
@@ -105,12 +105,12 @@ PrefabInstance:
     - target: {fileID: 639969122254083244, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 639969122254083244, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
       propertyPath: m_Interpolate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7529655926053106608, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 7529655926053106608, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6841934580592107407, guid: d27b4126e8432f145a88b14d226732df,
         type: 3}

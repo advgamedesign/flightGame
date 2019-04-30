@@ -66,22 +66,9 @@ public class RandomSIde2Side : MonoBehaviour
 
         }
 
-        if(other.tag == "playerBullet")
-        {
-            Die();
-            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
-        }
-
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "playerBullet")
-        {
-            Die();
-            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
-        }
-    }
+  
 
     private void Update()
     {
@@ -161,6 +148,13 @@ public class RandomSIde2Side : MonoBehaviour
         {
             Die();
             PlayerPrefs.SetInt("PlayerHealth", PlayerPrefs.GetInt("PlayerHealth") - 1);
+        }
+
+        if(collision.collider.tag == "playerBullet")
+        {
+            Die();
+            collision.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
         }
     }
 

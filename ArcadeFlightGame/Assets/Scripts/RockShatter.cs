@@ -26,10 +26,33 @@ public class RockShatter : MonoBehaviour
 
         }
 
+        if(collision.collider.tag == "playerBullet")
+        {
+            health--;
+
+            if (health > 0)
+            {
+                GetComponent<Renderer>().material = mat;
+                PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 100);
+                collision.collider.gameObject.SetActive(false);
+            }
+
+            else
+            {
+
+
+                Instantiate(rockShattered, transform.position, transform.rotation);
+                //rockShattered.GetComponent<Renderer>().material = mat;
+                Destroy(gameObject);
+                PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 500);
+                collision.collider.gameObject.SetActive(false);
+            }
+        }
+
 
     }
 
-    private void OnTriggerExit(Collider other)
+   /* private void OnTriggerExit(Collider other)
     {
         if (other.tag == "playerBullet")
         {
@@ -93,7 +116,7 @@ public class RockShatter : MonoBehaviour
             }
         }
 
-    }
+    }*/
 
     public void Update()
     {

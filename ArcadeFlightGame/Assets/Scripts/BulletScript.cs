@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();    
+          
     }
 
     void FixedUpdate()

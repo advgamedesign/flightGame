@@ -14618,6 +14618,8 @@ GameObject:
   - component: {fileID: 3164243211320706639}
   - component: {fileID: 7937822975568510623}
   - component: {fileID: 2896033023451067554}
+  - component: {fileID: 6183054270882076244}
+  - component: {fileID: 3868511759773630949}
   - component: {fileID: 5478612699990310016}
   m_Layer: 0
   m_Name: asteroidShatter
@@ -14914,6 +14916,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6183054270882076244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164243211311330703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bf8f9a7fb54174bb729a469c6f36c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4293175274729168285, guid: 3735ad9cb4df14e42b0c87302f7ca0e8, type: 3}
+--- !u!114 &3868511759773630949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164243211311330703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bf8f9a7fb54174bb729a469c6f36c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 639969122254083242, guid: d27b4126e8432f145a88b14d226732df, type: 3}
 --- !u!114 &5478612699990310016
 MonoBehaviour:
   m_ObjectHideFlags: 0
