@@ -50,33 +50,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.name == points[current].name)
-        {
-            speed = shipSpeed;
-            startFiring = true;
-
-        }
-
-        if (other.tag == "playerBullet")
-        {
-            Die();
-            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
-        }
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "playerBullet")
-        {
-            Die();
-            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
-        }
-    }
-
     private void Update()
     {
         if (player.transform.position.z > transform.position.z - 50)
@@ -156,8 +129,27 @@ public class EnemyMovement : MonoBehaviour
             Die();
             PlayerPrefs.SetInt("PlayerHealth", PlayerPrefs.GetInt("PlayerHealth") - 1);
         }
+
+        if (collision.collider.tag == "playerBullet")
+        {
+            Die();
+            collision.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("PlayerScore", PlayerPrefs.GetInt("PlayerScore") + 1000);
+        }
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.name == points[current].name)
+        {
+            speed = 30;
+            startFiring = true;
+
+        }
+
+    }
 
 
 }
